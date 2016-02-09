@@ -10,19 +10,19 @@ import utils.BaseClass;
 import utils.LoginUser;
 import utils.RandomName;
 
-public class Test008_Delete_User extends BaseClass{
 
-    @Test
+public class Test004_Linking_Roles extends BaseClass {
+
     @Features("User management")
-    @Title("Delete existing user")
-    public void testDeleteUser(){
-
+    @Test
+    @Title("Add more roles to existing user")
+    public void testName() throws Exception {
         LoginUser.LoginProperly();
 
         String Username = RandomName.readFromFile().get(0);
-        Extras.USER_ADMINISTRATION().deleteUser(Username);
+        Extras.USER_ADMINISTRATION().AddyAdminRolle(Username);
 
-        Assert.assertTrue(driver.findElements(By.linkText(Username)).isEmpty());
-
+        Assert.assertTrue(driver.findElement(By.xpath(".//*[@id='1']//td[4]/label"))
+                .getText().contains("Adminrolle"));
     }
 }

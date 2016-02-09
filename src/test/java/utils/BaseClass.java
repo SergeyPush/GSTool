@@ -9,7 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 
 public class BaseClass {
-
     protected static WebDriver driver;
     public static String browser;
 
@@ -26,7 +25,7 @@ public class BaseClass {
 
         driver.manage().window().maximize();
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get(Property_Loader.loadProperty("site.url"));
 
     }

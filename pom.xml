@@ -10,11 +10,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <aspectj.version>1.7.4</aspectj.version>
+        <allure.version>1.4.22</allure.version>
     </properties>
 
     <profiles>
         <profile>
-            <id>MAConline</id>
+            <id>localhost</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -22,11 +24,9 @@
             <properties>
                 <user.username>autouser</user.username>
                 <user.password>a12345678</user.password>
-                <site.url>http://10.211.55.3:9090/gst2015/gstool/targetObject.jsf#</site.url>
+                <site.url>http://10.211.55.3:9090/gst2015/gstool</site.url>
                 <browser.name>firefox</browser.name>
-
             </properties>
-
             <build>
                 <testResources>
                     <testResource>
@@ -34,22 +34,17 @@
                         <filtering>true</filtering>
                     </testResource>
                 </testResources>
-
-
             </build>
+
         </profile>
         <profile>
-            <id>MAConlineChrome</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
+            <id>MAConline</id>
 
             <properties>
                 <user.username>autouser</user.username>
                 <user.password>a12345678</user.password>
-                <site.url>http://10.211.55.3:9090/gst2015/gstool/targetObject.jsf#</site.url>
-                <browser.name>chrome</browser.name>
-
+                <site.url>http://10.211.55.3:9090/gst2015/gstool</site.url>
+                <browser.name>firefox</browser.name>
             </properties>
 
             <build>
@@ -59,11 +54,28 @@
                         <filtering>true</filtering>
                     </testResource>
                 </testResources>
-
-
             </build>
         </profile>
 
+        <profile>
+            <id>MAConlineChrome</id>
+
+            <properties>
+                <user.username>autouser</user.username>
+                <user.password>a12345678</user.password>
+                <site.url>http://10.211.55.3:9090/gst2015/gstool</site.url>
+                <browser.name>chrome</browser.name>
+            </properties>
+
+            <build>
+                <testResources>
+                    <testResource>
+                        <directory>src/test/resources</directory>
+                        <filtering>true</filtering>
+                    </testResource>
+                </testResources>
+            </build>
+        </profile>
     </profiles>
 
 
@@ -78,6 +90,11 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-server</artifactId>
             <version>2.51.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-junit-adaptor</artifactId>
+            <version>${allure.version}</version>
         </dependency>
 
     </dependencies>
@@ -94,16 +111,43 @@
                         <!-- put your configurations here -->
                     </configuration>
                 </plugin>
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.19.1</version>
                     <configuration>
                         <testFailureIgnore>true</testFailureIgnore>
+                        <argLine>
+                            -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
+                        </argLine>
+                        <properties>
+                            <property>
+                                <name>listener</name>
+                                <value>ru.yandex.qatools.allure.junit.AllureRunListener</value>
+                            </property>
+                        </properties>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjweaver</artifactId>
+                            <version>${aspectj.version}</version>
+                        </dependency>
+
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
     </build>
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>ru.yandex.qatools.allure</groupId>
+                <artifactId>allure-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>

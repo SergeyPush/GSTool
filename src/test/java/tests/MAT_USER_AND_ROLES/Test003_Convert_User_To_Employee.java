@@ -10,19 +10,20 @@ import utils.BaseClass;
 import utils.LoginUser;
 import utils.RandomName;
 
-public class Test008_Delete_User extends BaseClass{
+public class Test003_Convert_User_To_Employee extends BaseClass {
 
-    @Test
     @Features("User management")
-    @Title("Delete existing user")
-    public void testDeleteUser(){
+    @Test
+    @Title("Convert Existing user to employee")
+    public void testName() throws InterruptedException {
 
         LoginUser.LoginProperly();
 
         String Username = RandomName.readFromFile().get(0);
-        Extras.USER_ADMINISTRATION().deleteUser(Username);
 
-        Assert.assertTrue(driver.findElements(By.linkText(Username)).isEmpty());
+        Extras.USER_ADMINISTRATION().convertUserToEmployee(Username);
+
+        Assert.assertTrue(driver.findElement(By.partialLinkText(Username)).isDisplayed());
 
     }
 }

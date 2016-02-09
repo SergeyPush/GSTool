@@ -6,16 +6,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Property_Loader;
 
 
 public class User_Administration {
 
     WebDriver driver;
+
     public User_Administration(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
     @FindBy(xpath = ".//*[@id='addElementEnabled']")
     WebElement newButton;
 
@@ -46,8 +50,14 @@ public class User_Administration {
     @FindBy(xpath = ".//*[@id='confirmationDialog-confirm']")
     WebElement confirmDeleteButton;
 
+    @FindBy(id = "convertEnabled")
+    WebElement targetObjectButton;
 
-    public void addNewUser(String name, String pass){
+    @FindBy(id = "rolesEnabled")
+    WebElement rolesButton;
+
+
+    public void addNewUser(String name, String pass) {
 
         newButton.click();
         new WebDriverWait(driver, 5).until(ExpectedConditions
@@ -59,13 +69,9 @@ public class User_Administration {
         saveButton.click();
     }
 
-    public  void editUserPassword(String name, String password){
+    public void editUserPassword(String name, String password) throws InterruptedException {
         driver.findElement(By.partialLinkText(name)).click();
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(1500);
         editButton.click();
         PasswordField.clear();
         PasswordField.sendKeys(password);
@@ -74,7 +80,7 @@ public class User_Administration {
         cancelButton.click();
     }
 
-    public  void deleteUser(String name) {
+    public void deleteUser(String name) {
         driver.findElement(By.partialLinkText(name)).click();
         try {
             Thread.sleep(1500);
@@ -90,4 +96,29 @@ public class User_Administration {
 
     }
 
+    public void convertUserToEmployee(String username) throws InterruptedException {
+        driver.findElement(By.partialLinkText(username)).click();
+
+        Thread.sleep(1000);
+        targetObjectButton.click();
+
+        new WebDriverWait(driver, 5).until(ExpectedConditions
+                .elementToBeClickable(By.xpath(".//*[@id='notificationDialog-confirm']")));
+
+        driver.findElement(By.xpath(".//*[@id='notificationDialog-confirm']")).click();
+        driver.findElement(By.xpath(".//*[@id='toolBarForm:imgReload']")).click();
+        driver.navigate().to(Property_Loader.loadProperty("site.url")+"/targetObject.jsf");
+    }
+
+    public void AddyAdminRolle(String username) throws InterruptedException {
+        driver.findElement(By.partialLinkText(username)).click();
+        Thread.sleep(1000);
+        rolesButton.click();
+
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("(.//*[@class='childChb_role_panel'])[1]")).click();
+
+        driver.findElement(By.xpath(".//*[@id='role_panel_mpBForm:save_link']")).click();
+
+    }
 }

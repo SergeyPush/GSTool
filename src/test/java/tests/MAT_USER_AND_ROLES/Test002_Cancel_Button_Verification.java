@@ -4,17 +4,21 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import pages.Extras;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
+import ru.yandex.qatools.allure.annotations.Title;
 import utils.BaseClass;
 import utils.LoginUser;
 import utils.RandomName;
 
-/**
- * Created by sergey on 08.02.16.
- */
+
 public class Test002_Cancel_Button_Verification extends BaseClass{
 
     @Test
-    public void testCancelButtonVerification(){
+    @Features("User management")
+    @Title("Test cancel button verification")
+
+    public void testCancelButtonVerification() throws InterruptedException {
         LoginUser.LoginProperly();
         String name = RandomName.readFromFile().get(0);
         String password = "Some_password";

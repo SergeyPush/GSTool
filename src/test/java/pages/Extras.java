@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.Extras_pages.User_Administration;
 import utils.BaseClass;
+import utils.Property_Loader;
 
 public class Extras extends BaseClass {
 
@@ -17,7 +18,7 @@ public class Extras extends BaseClass {
 //                .visibilityOfElementLocated(By.xpath(".//*[@id='naviForm:j_id159']")));
 //        driver.findElement(By.xpath(".//*[@id='naviForm:j_id159']")).click();
 
-        driver.navigate().to("http://10.211.55.3:9090/gst2015/gstool/userAdministration.jsf#");
+        driver.navigate().to(Property_Loader.loadProperty("site.url") +"/userAdministration.jsf#");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
