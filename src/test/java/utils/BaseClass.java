@@ -2,6 +2,7 @@ package utils;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,24 +18,20 @@ public class BaseClass {
 
         browser = Property_Loader.loadProperty("browser.name");
         if (browser.equals("chrome")) {
-
             driver = new ChromeDriver();
         } else {
             driver = new FirefoxDriver();
         }
 
         driver.manage().window().maximize();
-
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get(Property_Loader.loadProperty("site.url"));
-
     }
 
 
     @AfterClass
     public static void tearDown() {
         driver.quit();
-
-
     }
+
 }

@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.Extras_pages.Role_administration;
 import pages.Extras_pages.User_Administration;
 import utils.BaseClass;
 import utils.Property_Loader;
@@ -26,6 +27,21 @@ public class Extras extends BaseClass {
         }
         return new User_Administration(driver);
 
+    }
+
+
+    public static Role_administration ROLE_ADMINISTRATION(){
+
+
+        driver.navigate().to(Property_Loader.loadProperty("site.url") +"/userRolesAdministration.jsf");
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return new Role_administration(driver);
     }
 
 }

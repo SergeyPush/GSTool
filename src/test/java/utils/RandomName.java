@@ -12,6 +12,7 @@ public class RandomName {
 
     private static String name;
     private static String password;
+    private static String roleName;
 
     public static String getRandomName() {
 
@@ -21,6 +22,16 @@ public class RandomName {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
         name = "testuser_" + simpleDateFormat.format(date);
         return name;
+    }
+
+    public static String getRandomRoleName() {
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        Date date = new Date(timestamp.getTime());
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+        roleName = "testrole_" + simpleDateFormat.format(date);
+        return roleName;
     }
 
     public static String getRandomPassword() {

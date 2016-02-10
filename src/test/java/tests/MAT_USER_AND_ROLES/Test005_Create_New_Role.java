@@ -10,19 +10,21 @@ import utils.BaseClass;
 import utils.LoginUser;
 import utils.RandomName;
 
-public class Test008_Delete_User extends BaseClass{
 
-    @Test
+public class Test005_Create_New_Role extends BaseClass {
+
     @Features("User management")
-    @Title("Delete existing user")
-    public void testDeleteUser(){
+    @Test
+    @Title("Create new role")
+    public void testCreateNewRole() throws Exception {
 
         LoginUser.LoginProperly();
 
-        String Username = RandomName.readFromFile().get(0);
-        Extras.USER_ADMINISTRATION().deleteUser(Username);
+        String roleName = RandomName.getRandomRoleName();
 
-        Assert.assertTrue(driver.findElements(By.linkText(Username)).isEmpty());
+        Extras.ROLE_ADMINISTRATION().CreateNewRole(roleName);
+
+        Assert.assertTrue(driver.findElement(By.partialLinkText(roleName)).isDisplayed());
 
     }
 }
