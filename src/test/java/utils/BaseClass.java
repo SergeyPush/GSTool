@@ -1,5 +1,6 @@
 package utils;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
@@ -26,6 +27,8 @@ public class BaseClass {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get(Property_Loader.loadProperty("site.url"));
+        WebDriverRunner.setWebDriver(driver);
+
     }
 
 

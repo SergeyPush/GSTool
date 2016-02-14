@@ -8,6 +8,7 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.BaseClass;
 import utils.LoginUser;
+import utils.OpenPlus;
 import utils.RandomName;
 
 public class Test003_Convert_User_To_Employee extends BaseClass {
@@ -23,6 +24,7 @@ public class Test003_Convert_User_To_Employee extends BaseClass {
 
         Extras.USER_ADMINISTRATION().convertUserToEmployee(Username);
 
+        OpenPlus.expandAll();
         Assert.assertTrue(driver.findElement(By.partialLinkText(Username)).isDisplayed());
 
     }
