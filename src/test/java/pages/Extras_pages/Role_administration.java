@@ -31,8 +31,8 @@ public class Role_administration {
     @FindBy(id = "discardEnabled")
     WebElement cancelButton;
 
-    @FindBy(xpath = ".//*[@id='1']/table/tbody/tr/td[4]/a")
-    WebElement GlobalAreaLink;
+    @FindBy(xpath = ".//*[@id='permissionAreaDataListForm:j_id640']//*[@class='_cell']/a")
+    WebElement getGlobalAreaLink;
 
 
     public void CreateNewRole(String roleName) {
@@ -66,5 +66,34 @@ public class Role_administration {
                 .presenceOfElementLocated(By.xpath(".//*[@id='confirmationDialog-confirm']")));
 
         driver.findElement(By.xpath(".//*[@id='confirmationDialog-confirm']")).click();
+    }
+
+    public void SelectRole(String testrole) throws InterruptedException {
+        driver.findElement(By.partialLinkText(testrole)).click();
+    }
+
+    public void selectGlobal() {
+        new WebDriverWait(driver, 5).until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath(".//*[@id='1']/table/tbody/tr/td[4]/a")));
+        getGlobalAreaLink.click();
+
+    }
+
+    public void CheckAllPermissions() throws InterruptedException {
+
+        driver.findElement(By.xpath(".//*[@id='roleAdministrationForm:tabModules_lbl']")).click();
+        new WebDriverWait(driver, 5).until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath(".//*[@id='1']/table/tbody/tr/td[6]/div/input")));
+
+
+        driver.findElement(By.xpath(".//*[@id='1']/table/tbody/tr/td[6]/div/input")).click();
+        Thread.sleep(400);
+        driver.findElement(By.xpath(".//*[@id='1']/table/tbody/tr/td[7]/div/input")).click();
+        Thread.sleep(400);
+        driver.findElement(By.xpath(".//*[@id='1']/table/tbody/tr/td[8]/div/input")).click();
+        Thread.sleep(400);
+        driver.findElement(By.xpath(".//*[@id='1']/table/tbody/tr/td[9]/div/input")).click();
+        Thread.sleep(400);
+
     }
 }

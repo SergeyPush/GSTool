@@ -121,4 +121,8 @@ public class User_Administration {
         driver.findElement(By.xpath(".//*[@id='role_panel_mpBForm:save_link']")).click();
 
     }
+
+    public void selectUser(String username) {
+        driver.findElement(By.partialLinkText(username)).click();
+    }
 }
