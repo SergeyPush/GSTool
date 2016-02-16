@@ -18,12 +18,21 @@ public class MainMenu {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = ".//*[@id='addElementEnabled']")
+    WebElement addButton;
+
     @FindBy(xpath = ".//*[@id='saveEnabled']")
     WebElement saveButton;
 
     public void clickSaveButton() throws InterruptedException {
         new WebDriverWait(driver, 5).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='saveEnabled']")));
         saveButton.click();
+        Thread.sleep(1000);
+    }
+
+    public void clickAddButton() throws InterruptedException {
+        new WebDriverWait(driver, 5).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='addElementEnabled']")));
+        addButton.click();
         Thread.sleep(500);
     }
 
