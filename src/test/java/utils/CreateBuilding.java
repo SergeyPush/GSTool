@@ -15,7 +15,7 @@ public class CreateBuilding extends BaseClass{
 
     public static void generalBuilding(String name) throws InterruptedException {
 
-        driver.get(Property_Loader.loadProperty("site.url")+"/targetObject.jsf");
+//        driver.get(Property_Loader.loadProperty("site.url")+"/targetObject.jsf");
 
         WebDriverWait wait = new WebDriverWait(driver, 5);
         Common.MAIN_MENU().clickAddButton();

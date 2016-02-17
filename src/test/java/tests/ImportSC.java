@@ -18,12 +18,12 @@ public class ImportSC extends BaseClass {
     public void Name() throws Exception {
         WebDriverRunner.setWebDriver(driver);
         LoginUser.LoginProperly();
-        driver.navigate().to("http://localhost:9090/gst2015/gstool/securityConcepts.jsf");
+        driver.navigate().to("http://10.211.55.3:9090/gst2016/gstool/securityConcepts.jsf");
         Thread.sleep(500);
 
         driver.findElement(By.xpath(".//*[@id='uploadNewMetaDataEnabled']")).click();
 
-        File file = new File("D:\\Releases\\1\\04.Metadata\\2014_11_Metadaten_EL14.zip");
+        File file = new File("/Users/sergey/Downloads/2014_11_Metadaten_EL14.zip");
 
         $(By.xpath(".//*[@id='importMDForm:upload:file']")).uploadFile(file);
 

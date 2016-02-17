@@ -33,6 +33,7 @@ public class BaseClass {
 
     @AfterClass
     public static void tearDown() {
+        driver.manage().deleteAllCookies();
         driver.quit();
     }
 
