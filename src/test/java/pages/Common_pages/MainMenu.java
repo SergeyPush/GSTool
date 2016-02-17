@@ -31,7 +31,7 @@ public class MainMenu {
     }
 
     public void clickAddButton() throws InterruptedException {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='addElementEnabled']")));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='addElementEnabled']")));
         addButton.click();
         Thread.sleep(500);
     }
