@@ -24,6 +24,9 @@ public class MainMenu {
     @FindBy(xpath = ".//*[@id='saveEnabled']")
     WebElement saveButton;
 
+    @FindBy(xpath = ".//*[@id='deleteElementEnabled']")
+    WebElement deleteButton;
+
     public void clickSaveButton() throws InterruptedException {
         new WebDriverWait(driver, 5).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='saveEnabled']")));
         saveButton.click();
@@ -38,4 +41,14 @@ public class MainMenu {
     }
 
 
+    public void clickDeleteButton() throws InterruptedException {
+        deleteButton.click();
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='genericConfirmPanelYes']")));
+        driver.findElement(By.xpath(".//*[@id='genericConfirmPanelYes']")).click();
+
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='footerForm:message']/dt")));
+        Thread.sleep(500);
+    }
 }

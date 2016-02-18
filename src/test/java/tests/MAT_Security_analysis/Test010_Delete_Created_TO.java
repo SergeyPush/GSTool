@@ -1,33 +1,30 @@
 package tests.MAT_Security_analysis;
 
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import pages.Common;
 import pages.GrundSchutz;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.BaseClass;
-import utils.CreateBuilding;
 import utils.LoginUser;
 
 
-public class Test001_SelectCreatedTO extends BaseClass{
+public class Test010_Delete_Created_TO extends BaseClass {
 
     @Features("Security Analysis")
     @Test
-    @Title("Test create new user")
-    public void testSelectExistingTO() throws Exception {
+    @Title("Delete Created TO ")
+    public void testDeleteCreatedTO() throws Exception {
 
         LoginUser.LoginProperly();
 
         String TOname = "testBuilding";
+        GrundSchutz.INVENTORY_ANALYSIS().SelectToName(TOname);
+        Common.MAIN_MENU().clickDeleteButton();
 
-        CreateBuilding.generalBuilding(TOname);
-
-        GrundSchutz.SECURITY_ANALYSIS().SelectCreatedTO(TOname);
-
-        Assert.assertTrue(driver.findElement(By.partialLinkText(TOname)).isDisplayed());
+        Assert.assertTrue(driver.findElements(By.partialLinkText(TOname)).isEmpty());
 
     }
 }
