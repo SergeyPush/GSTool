@@ -21,6 +21,7 @@ public class Security_anays_pages {
 
     public void SelectCreatedTO(String tOname) throws InterruptedException {
         OpenPlus.expandAll();
+        Thread.sleep(500);
         driver.findElement(By.partialLinkText(tOname)).click();
         Thread.sleep(500);
     }

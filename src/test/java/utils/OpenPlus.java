@@ -20,7 +20,7 @@ public class OpenPlus extends BaseClass {
         for (SelenideElement elm : list) {
             if (elm.getAttribute("src").contains("Closed")) {
                 elm.click();
-                Thread.sleep(300);
+                Thread.sleep(500);
             }
         }
 

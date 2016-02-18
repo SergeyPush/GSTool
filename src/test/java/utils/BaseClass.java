@@ -1,6 +1,5 @@
 package utils;
 
-import com.codeborne.selenide.WebDriverRunner;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
@@ -27,13 +26,18 @@ public class BaseClass {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(Property_Loader.loadProperty("site.url"));
-
     }
 
 
     @AfterClass
-    public static void tearDown() {
-        driver.manage().deleteAllCookies();
+    public static void tearDown() throws InterruptedException {
+        Thread.sleep(500);
+
+        try{
+            driver.findElement(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         driver.quit();
     }
 
