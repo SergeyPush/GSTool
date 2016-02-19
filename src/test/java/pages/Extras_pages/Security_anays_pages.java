@@ -44,6 +44,9 @@ public class Security_anays_pages {
     @FindBy(xpath = ".//*[@id='securityAnalysisForm:prRepeat:2:category']")
     WebElement AvailabilityDropdown;
 
+    @FindBy(xpath = ".//*[@id='dataListID:filter_to_dataList_filter_management']/tbody/tr/td[1]/select")
+    WebElement selectFilterDropdown;
+
 
 
     public void SelectCreatedTO(String tOname) throws InterruptedException {
@@ -97,6 +100,32 @@ public class Security_anays_pages {
         driver.findElement(By.xpath(".//*[@id='securityAnalysisForm:prRepeat:2:reason']")).clear();
         driver.findElement(By.xpath(".//*[@id='securityAnalysisForm:prRepeat:2:reason']")).sendKeys(description);
         Thread.sleep(500);
+
+    }
+
+    public void SelectPredefinedFilter(String filterName) {
+        new Select(selectFilterDropdown).selectByVisibleText(filterName);
+    }
+
+    public void creaateNewFilter(String filterName, String tOsubtype, String tOtype) throws InterruptedException {
+
+        driver.findElement(By.xpath(".//*[@id='dataListID:j_id279']/img")).click();
+        new WebDriverWait(driver, 5).until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath(".//*[@id='securityAnalysisFilterPanel_dataListFilterForm:name']")));
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath(".//*[@id='securityAnalysisFilterPanel_dataListFilterForm:name']")).sendKeys(filterName);
+        Thread.sleep(500);
+        new Select(driver.findElement(By.xpath(".//*[@id='securityAnalysisFilterPanel_dataListFilterForm:conditionGroup:0:basicConditionFacade:0:basicConditionValueDropDawn']")))
+                .selectByVisibleText(tOsubtype);
+        Thread.sleep(500);
+        new Select(driver.findElement(By.xpath(".//*[@id='securityAnalysisFilterPanel_dataListFilterForm:conditionGroup:0:basicConditionFacade:4:basicConditionValueDropDawn']")))
+                .selectByVisibleText(tOtype);
+        Thread.sleep(1000);
+
+//        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='securityAnalysisFilterPanel_dataListFilterForm:commandExecute']")));
+
+        driver.findElement(By.xpath(".//*[@id='securityAnalysisFilterPanel_dataListFilterForm:commandExecute']")).click();
 
     }
 }

@@ -36,7 +36,7 @@ public class BaseClass {
         try{
             driver.findElement(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
         } catch (Exception e){
-            e.printStackTrace();
+            e.getCause();
         }
         driver.quit();
     }
