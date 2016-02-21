@@ -1,8 +1,7 @@
 package utils;
 
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.*;
+import org.openqa.selenium.By;
 
 
 import static com.codeborne.selenide.Selenide.*;
@@ -25,4 +24,5 @@ public class OpenPlus extends BaseClass {
         }
 
     }
+
 }

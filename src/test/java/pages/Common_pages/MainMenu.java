@@ -49,6 +49,6 @@ public class MainMenu {
 
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='footerForm:message']/dt")));
-        Thread.sleep(500);
+        Thread.sleep(1000);
     }
 }

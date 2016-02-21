@@ -67,7 +67,7 @@ public class Security_anays_pages {
         Thread.sleep(500);
         new Select(NecessityOfRAdropdown).selectByVisibleText(necessityOfRA);
         Thread.sleep(500);
-        new Select(DeciderDropdown).selectByVisibleText(decider);
+        new Select(DeciderDropdown).selectByIndex(Integer.parseInt(decider));
         Thread.sleep(500);
         DateOfDecisionInput.sendKeys(dateOfDecision);
         Thread.sleep(500);
@@ -122,8 +122,6 @@ public class Security_anays_pages {
         new Select(driver.findElement(By.xpath(".//*[@id='securityAnalysisFilterPanel_dataListFilterForm:conditionGroup:0:basicConditionFacade:4:basicConditionValueDropDawn']")))
                 .selectByVisibleText(tOtype);
         Thread.sleep(1000);
-
-//        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='securityAnalysisFilterPanel_dataListFilterForm:commandExecute']")));
 
         driver.findElement(By.xpath(".//*[@id='securityAnalysisFilterPanel_dataListFilterForm:commandExecute']")).click();
 

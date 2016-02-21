@@ -13,6 +13,7 @@ public class RandomName {
     private static String name;
     private static String password;
     private static String roleName;
+    private static String Toname;
 
     public static String getRandomName() {
 
@@ -43,6 +44,15 @@ public class RandomName {
         password = simpleDateFormat.format(date);
         writeToFile(name, password);
         return password;
+    }
+
+    public static String convertName(String name){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        Date date = new Date(timestamp.getTime());
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+        Toname =name+ "_" + simpleDateFormat.format(date);
+        return Toname;
     }
 
     public static void writeToFile(String name, String password) {

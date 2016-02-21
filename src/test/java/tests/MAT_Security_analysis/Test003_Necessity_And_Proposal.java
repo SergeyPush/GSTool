@@ -25,7 +25,7 @@ public class Test003_Necessity_And_Proposal extends BaseClass {
         GrundSchutz.SECURITY_ANALYSIS().SelectCreatedTO(TOname);
 
         String NecessityOfRA = "yes";
-        String Decider = "Administrator";
+        String Decider = "1";
         String DateOfDecision = "18.02.2016";
         String Explanation = "Some explanation";
 

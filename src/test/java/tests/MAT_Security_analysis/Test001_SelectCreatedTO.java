@@ -10,6 +10,7 @@ import ru.yandex.qatools.allure.annotations.Title;
 import utils.BaseClass;
 import utils.CreateBuilding;
 import utils.LoginUser;
+import utils.ToCreation;
 
 
 public class Test001_SelectCreatedTO extends BaseClass{
@@ -23,8 +24,7 @@ public class Test001_SelectCreatedTO extends BaseClass{
 
         String TOname = "testBuilding";
 
-        CreateBuilding.generalBuilding(TOname);
-
+        ToCreation.CreateNewTO("Building");
         GrundSchutz.SECURITY_ANALYSIS().SelectCreatedTO(TOname);
 
         Assert.assertTrue(driver.findElement(By.partialLinkText(TOname)).isDisplayed());
