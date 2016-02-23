@@ -24,7 +24,7 @@ public class Test010_Delete_Created_TO extends BaseClass {
         GrundSchutz.INVENTORY_ANALYSIS().SelectToName(TOname);
         Common.MAIN_MENU().clickDeleteButton();
 
-        Assert.assertTrue(driver.findElements(By.partialLinkText(TOname)).isEmpty());
+        Assert.assertTrue(driver.findElement(By.xpath(".//*[@id='footerForm:message']/dt")).isDisplayed());
 
     }
 }

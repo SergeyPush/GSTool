@@ -1,6 +1,5 @@
 package utils;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 
@@ -11,7 +10,6 @@ public class ToCreation extends BaseClass{
 
     public static void CreateNewTO(String Type) throws InterruptedException {
         WebDriverRunner.setWebDriver(driver);
-        Configuration.collectionsTimeout = 1000;
 
         $(By.xpath(".//*[@id='addElementEnabled']")).click();
 
@@ -36,7 +34,6 @@ public class ToCreation extends BaseClass{
             Thread.sleep(100);
             $(By.xpath(".//*[@id='subtypeSelectionForm:subtypeSelection_personTable:0:subtypeSelectionstate0_fake']")).click();
             $(By.xpath(".//*[@id='subtypeSelectionForm:subtypeSelectionokLink']")).waitUntil(enabled, 4000).click();
-
         }
 
         $(By.xpath(".//*[@id='saveEnabled']")).waitUntil(enabled, 4000).click();

@@ -1,6 +1,8 @@
 package utils;
 
+import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,22 +12,22 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 
 public class BaseClass {
+
     protected static WebDriver driver;
     public static String browser;
 
     @BeforeClass
     public static void setUp() {
+            browser = Property_Loader.loadProperty("browser.name");
+            if (browser.equals("chrome")) {
+                driver = new ChromeDriver();
+            } else {
+                driver = new FirefoxDriver();
+            }
 
-        browser = Property_Loader.loadProperty("browser.name");
-        if (browser.equals("chrome")) {
-            driver = new ChromeDriver();
-        } else {
-            driver = new FirefoxDriver();
-        }
-
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get(Property_Loader.loadProperty("site.url"));
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            driver.get(Property_Loader.loadProperty("site.url"));
     }
 
 
@@ -33,9 +35,9 @@ public class BaseClass {
     public static void tearDown() throws InterruptedException {
         Thread.sleep(500);
 
-        try{
+        try {
             driver.findElement(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.getCause();
         }
         driver.quit();
