@@ -15,7 +15,7 @@ public class Test005_Applying_Predefined_Filter extends BaseClass{
     @Features("Security Analysis")
     @Test
     @Title("Applying Predefined Filter")
-    public void testApplyFilter() {
+    public void testApplyFilter() throws InterruptedException {
 
         LoginUser.LoginProperly();
 

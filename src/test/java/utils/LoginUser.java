@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginUser extends BaseClass {
 
-    public static void LoginProperly() {
+    public static void LoginProperly() throws InterruptedException {
 
 
         if (driver.findElement(By.xpath(".//*[@id='loginForm']/table/tbody/tr[1]/td/span")).isDisplayed()) {
@@ -22,6 +22,9 @@ public class LoginUser extends BaseClass {
                     .visibilityOfElementLocated(By.xpath(".//*[@id='changeSafetyConceptPanelHeader']")));
             Assert.assertTrue(driver.findElement(By.xpath(".//*[@id='changeSafetyConceptPanelHeader']")).isDisplayed());
 
+            new WebDriverWait(driver, 5).until(ExpectedConditions
+                    .visibilityOfElementLocated(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")));
+            Thread.sleep(300);
             driver.findElement(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")).click();
 
             new WebDriverWait(driver, 5).until(ExpectedConditions

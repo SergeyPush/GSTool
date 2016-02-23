@@ -16,7 +16,7 @@ public class Test001_Add_New_User extends BaseClass{
     @Test
     @Features("User management")
     @Title("Test create new user")
-    public void testAddNewUser() {
+    public void testAddNewUser() throws InterruptedException {
 
         LoginUser.LoginProperly();
 

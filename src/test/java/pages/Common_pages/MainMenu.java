@@ -27,6 +27,9 @@ public class MainMenu {
     @FindBy(xpath = ".//*[@id='deleteElementEnabled']")
     WebElement deleteButton;
 
+    @FindBy(id = "toolBarForm:reload")
+    WebElement refreshDatabaseButton;
+
     public void clickSaveButton() throws InterruptedException {
         new WebDriverWait(driver, 5).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='saveEnabled']")));
         saveButton.click();
@@ -50,5 +53,12 @@ public class MainMenu {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='footerForm:message']/dt")));
         Thread.sleep(1000);
+    }
+
+    public void refreshDatabase() throws InterruptedException {
+        Thread.sleep(500);
+        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='toolBarForm:reload']")));
+        refreshDatabaseButton.click();
+        Thread.sleep(500);
     }
 }

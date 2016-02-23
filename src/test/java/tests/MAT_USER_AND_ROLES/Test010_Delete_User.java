@@ -15,7 +15,7 @@ public class Test010_Delete_User extends BaseClass{
     @Test
     @Features("User management")
     @Title("Delete existing user")
-    public void testDeleteUser(){
+    public void testDeleteUser() throws InterruptedException {
 
         LoginUser.LoginProperly();
 

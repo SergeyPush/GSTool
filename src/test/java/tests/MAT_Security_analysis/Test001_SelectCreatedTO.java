@@ -4,6 +4,7 @@ package tests.MAT_Security_analysis;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import pages.Common;
 import pages.GrundSchutz;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
