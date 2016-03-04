@@ -3,9 +3,7 @@ package utils;
 import java.io.IOException;
 import java.util.Properties;
 
-/**
- * Created by sergey on 06.02.16.
- */
+
 public class Property_Loader {
 
     private static final String PROP_FILE = "/application.properties";

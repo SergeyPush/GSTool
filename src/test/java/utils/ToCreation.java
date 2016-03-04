@@ -13,10 +13,10 @@ public class ToCreation extends BaseClass{
 
         $(By.xpath(".//*[@id='addElementEnabled']")).click();
 
-        Thread.sleep(1000);
-        $(By.xpath(".//*[@id='menuForm:typeMenu']")).waitUntil(visible, 5000).selectOption(Type);
+        Thread.sleep(500);
+        $(By.xpath(".//*[@id='menuForm:typeMenu']")).waitUntil(enabled, 10).selectOption(Type);
 
-        if (WebDriverRunner.getWebDriver().findElement(By.xpath(".//*[@id='menuForm:icMenu']")).isEnabled()){
+        if ($(By.xpath(".//*[@id='menuForm:icMenu']")).exists()){
             Thread.sleep(400);
             $(By.xpath(".//*[@id='menuForm:icMenu']")).selectOption(0);
         }
@@ -27,7 +27,7 @@ public class ToCreation extends BaseClass{
         $(By.xpath(".//*[@id='currentObjectForm:alteredPanel']")).waitUntil(enabled, 4000);
         String ToName = "test" + RandomName.convertName(Type);
         $(By.xpath(".//*[@id='targetObjectForm:name']")).sendKeys(ToName);
-        $(By.xpath(".//*[@id='targetObjectForm:abbreviation']")).sendKeys(Type.toUpperCase());
+        $(By.xpath(".//*[@id='targetObjectForm:abbreviation']")).waitUntil(enabled, 4000).sendKeys(Type.toUpperCase());
 
         if ($(By.xpath(".//*[@id='targetObjectForm:subtypes']")).exists()){
             $(By.xpath(".//*[@id='targetObjectForm:subtypes']")).click();
