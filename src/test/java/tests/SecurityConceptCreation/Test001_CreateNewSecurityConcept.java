@@ -1,9 +1,7 @@
 package tests.SecurityConceptCreation;
 
-import com.codeborne.selenide.WebDriverRunner;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import utils.Property_Loader;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -19,9 +17,10 @@ public class Test001_CreateNewSecurityConcept extends AbstractClass{
     @Test
     public void testCreateNewSecurityConcept() throws Exception {
 
-        String SecurityConceptPage = Property_Loader.loadProperty("site.url")+"/securityConcepts.jsf";
-        open(SecurityConceptPage);
 
+        SelectView.OpenPage("Security Concepts");
+
+        String conceptName = "TestConcept";
 
         $("#newEnabled").waitUntil(enabled, 6000).click();
         $(By.xpath(".//*[@id='currentObjectForm:alteredPanel']")).waitUntil(visible, 6000);
@@ -30,18 +29,19 @@ public class Test001_CreateNewSecurityConcept extends AbstractClass{
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Date date = new Date(timestamp.getTime());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-        String SecurityConceptName = "TestConcept_" + simpleDateFormat.format(date);
+        String securityConceptName = conceptName + simpleDateFormat.format(date);
 
-
-        $(By.xpath(".//*[@id='safetyConceptForm:newName']")).sendKeys(SecurityConceptName);
+        $(By.xpath(".//*[@id='safetyConceptForm:newName']")).sendKeys(securityConceptName);
         $(By.xpath(".//*[@id='safetyConceptForm:newDescription']")).sendKeys("Automatically created security concept");
-
 
         $("#saveEnabled").click();
 
 
-        $(By.xpath(".//*[@id='creatingNew_closeNewSCVCreation']")).waitUntil(visible, 30000).click();
+        $(By.xpath(".//*[@id='creatingNew_SCVProgressForm:successAlert']")).waitUntil(visible, 50000);
+        $(By.xpath(".//*[@id='creatingNew_closeNewSCVCreation']")).waitUntil(present, 50000).click();
+
         $(By.xpath(".//*[@id='currentObjectForm:alteredPanel']")).waitUntil(disappear, 6000);
+        $(By.xpath(".//*[@id='footerForm:currentSCV']")).waitUntil(hasText(conceptName), 10000);
 
 
     }
