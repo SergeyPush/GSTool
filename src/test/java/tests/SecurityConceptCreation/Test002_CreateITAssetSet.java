@@ -1,12 +1,15 @@
 package tests.SecurityConceptCreation;
 
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.Condition;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
-import utils.Property_Loader;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Test002_CreateITAssetSet extends AbstractClass {
@@ -73,6 +76,13 @@ public class Test002_CreateITAssetSet extends AbstractClass {
         CreateNew.CreateTO("Employee", Employee1, ITAsset1);
         Thread.sleep(1000);
         CreateNew.CreateTO("Employee", Employee2, ITAsset1);
+    }
+
+    @Test
+    public void test_010Logout(){
+        if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(enabled, 6000).isDisplayed()){
+            $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
+        }
     }
 
 }

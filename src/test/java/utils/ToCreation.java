@@ -11,7 +11,7 @@ public class ToCreation extends BaseClass{
     public static void CreateNewTO(String Type) throws InterruptedException {
         WebDriverRunner.setWebDriver(driver);
 
-        $(By.xpath(".//*[@id='addElementEnabled']")).click();
+        $(By.xpath(".//*[@id='addElementEnabled']")).waitUntil(enabled, 6000).click();
 
         Thread.sleep(500);
         $(By.xpath(".//*[@id='menuForm:typeMenu']")).waitUntil(enabled, 10).selectOption(Type);

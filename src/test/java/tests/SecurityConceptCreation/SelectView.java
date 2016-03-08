@@ -17,7 +17,7 @@ public class SelectView {
 
         $(By.xpath(".//*[@id='topNaviForm:topNaviSelect']")).selectOption(page);
 
-        $(By.xpath(".//*[@id='naviForm:targetObjectTabId']")).waitUntil(visible, 6000).click();
+        $(By.xpath("//a[contains(text(), '"+tab+"')]")).waitUntil(visible, 6000).click();
 
 
     }

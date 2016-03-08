@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import pages.Extras;
+import pages.GrundSchutz;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.BaseClass;
@@ -22,5 +23,8 @@ public class Test009_Delete_Created_Role extends BaseClass{
         Extras.ROLE_ADMINISTRATION().DeleteCreatedRole();
 
         Assert.assertFalse(driver.findElements(By.partialLinkText("testrole")).isEmpty());
+
+        GrundSchutz.INVENTORY_ANALYSIS().SelectToName("testuser");
+
     }
 }

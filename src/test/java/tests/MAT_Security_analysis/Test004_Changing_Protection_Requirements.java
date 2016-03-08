@@ -31,7 +31,7 @@ public class Test004_Changing_Protection_Requirements extends BaseClass{
         GrundSchutz.SECURITY_ANALYSIS().SetProtectionRequirement(Confidentiality, Integrity, Availability, Description);
         Common.MAIN_MENU().clickSaveButton();
 
-        Assert.assertTrue(driver.findElement(By.xpath(".//*[@id='footerForm:message']/dt")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath(".//*[@id='footerForm:message']/dt/span[contains(text(),'Successfully saved')]")).isDisplayed());
 
     }
 }

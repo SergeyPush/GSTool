@@ -18,7 +18,7 @@ public class CreateNew {
         $(By.xpath(".//*[@id='addElementEnabled']")).waitUntil(enabled, 30000).click();
         //Select type of Asset
         $(By.xpath(".//*[@id='menuForm:typeMenu']")).waitUntil(enabled, 10000).selectOption(type);
-
+        Thread.sleep(500);
         //Link to Asset
         if ($(By.xpath(".//*[@id='menuForm:icMenu']")).exists()){
             $(By.xpath(".//*[@id='menuForm:icMenu']")).selectOption(linkToAsset);

@@ -3,11 +3,12 @@ package pages;
 import pages.Extras_pages.Role_administration;
 import pages.Extras_pages.User_Administration;
 import utils.BaseClass;
+import utils.OpenPage;
 import utils.Property_Loader;
 
 public class Extras extends BaseClass {
 
-    public static User_Administration USER_ADMINISTRATION(){
+    public static User_Administration USER_ADMINISTRATION() throws InterruptedException {
 
 
         driver.navigate().to(Property_Loader.loadProperty("site.url") +"/userAdministration.jsf#");
@@ -16,6 +17,7 @@ public class Extras extends BaseClass {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+//        OpenPage.selectTab("IT-Grundschutz", "Security Analysis");
         return new User_Administration(driver);
 
     }

@@ -57,8 +57,9 @@ public class User_Administration {
     WebElement rolesButton;
 
 
-    public void addNewUser(String name, String pass) {
+    public void addNewUser(String name, String pass) throws InterruptedException {
 
+        Thread.sleep(500);
         newButton.click();
         new WebDriverWait(driver, 5).until(ExpectedConditions
                 .visibilityOfElementLocated(By.xpath(".//*[@id='currentObjectForm:alteredPanel']")));
@@ -124,5 +125,23 @@ public class User_Administration {
 
     public void selectUser(String username) {
         driver.findElement(By.partialLinkText(username)).click();
+    }
+
+    public void AddRoleToUser(String rolename) throws InterruptedException {
+
+        rolesButton.click();
+        Thread.sleep(500);
+        String role = "//*[contains(text(), '"+rolename+"')]/../../../..//input";
+        driver.findElement(By.xpath(role)).click();
+        new WebDriverWait(driver, 5).until(ExpectedConditions
+                .elementToBeClickable(By.xpath(".//*[@id='role_panel_mpBForm:save_link']")));
+        driver.findElement(By.xpath(".//*[@id='role_panel_mpBForm:save_link']")).click();
+
+        new WebDriverWait(driver, 5).until(ExpectedConditions
+                .invisibilityOfElementLocated(By.xpath(".//*[@id='role_panelHeader']")));
+
+
+
+
     }
 }
