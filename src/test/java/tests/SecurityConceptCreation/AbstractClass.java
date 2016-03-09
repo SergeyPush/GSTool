@@ -12,6 +12,10 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class AbstractClass {
 
+    public String Grundschutz = "IT-Grundschutz";
+    public String Security_Check = "Security Check";
+    public String Inventory_Analysis = "Inventory Analysis";
+
     @BeforeClass
     public static void setUpClass() throws Exception {
 
