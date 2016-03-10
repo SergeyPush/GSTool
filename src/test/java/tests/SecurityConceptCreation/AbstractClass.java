@@ -20,7 +20,7 @@ public class AbstractClass {
     public static void setUpClass() throws Exception {
 
         String URL = Property_Loader.loadProperty("site.url") + "/targetObject.jsf";
-//        Configuration.browser = "chrome";
+        Configuration.browser = "chrome";
         open(URL);
 
         if ($(By.xpath(".//*[@id='loginForm']/table")).isDisplayed()) {

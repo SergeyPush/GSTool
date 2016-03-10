@@ -24,13 +24,13 @@ public class LoginUser extends BaseClass {
 
             new WebDriverWait(driver, 5).until(ExpectedConditions
                     .visibilityOfElementLocated(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")));
-            Thread.sleep(300);
+            Thread.sleep(500);
             driver.findElement(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")).click();
 
             new WebDriverWait(driver, 5).until(ExpectedConditions
                     .invisibilityOfElementLocated(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")));
 
-            driver.get(Property_Loader.loadProperty("site.url") + "/targetObject.jsf");
+//            driver.get(Property_Loader.loadProperty("site.url") + "/targetObject.jsf");
 
         }
 

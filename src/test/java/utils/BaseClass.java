@@ -16,6 +16,10 @@ public class BaseClass {
     protected static WebDriver driver;
     public static String browser;
 
+    public static String IT_Grundscutz = "IT-Grundschutz";
+    public static String Inventory_Analysis = "Inventory Analysis";
+    public static String Security_Analysis = "Security Analysis";
+
     @BeforeClass
     public static void setUp() {
             browser = Property_Loader.loadProperty("browser.name");

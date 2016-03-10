@@ -8,10 +8,7 @@ import pages.Common;
 import pages.GrundSchutz;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
-import utils.BaseClass;
-import utils.CreateBuilding;
-import utils.LoginUser;
-import utils.ToCreation;
+import utils.*;
 
 
 public class Test001_SelectCreatedTO extends BaseClass{
@@ -22,6 +19,7 @@ public class Test001_SelectCreatedTO extends BaseClass{
     public void testSelectExistingTO() throws Exception {
 
         LoginUser.LoginProperly();
+        OpenPage.SelectView(IT_Grundscutz, Inventory_Analysis);
 
         String TOname = "testBuilding";
 

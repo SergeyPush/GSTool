@@ -9,11 +9,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class OpenPage extends BaseClass {
 
 
-    public static void selectTab (String section, String view) throws InterruptedException {
+    public static void SelectView (String section, String view) throws InterruptedException {
 
         Thread.sleep(500);
 
-        new Select(driver.findElement(By.xpath(".//*[@id='naviForm:tabConfiguration']")))
+        new Select(driver.findElement(By.id("topNaviForm:topNaviSelect")))
                 .selectByVisibleText(section);
 
         String view2 = "//a[contains(text(), '" + view + "')]";
