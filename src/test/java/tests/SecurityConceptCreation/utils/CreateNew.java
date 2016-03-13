@@ -1,4 +1,4 @@
-package tests.SecurityConceptCreation;
+package tests.SecurityConceptCreation.utils;
 
 import org.openqa.selenium.By;
 
@@ -9,9 +9,9 @@ import static com.codeborne.selenide.Selenide.$;
 public class CreateNew {
 
 
-    public static void CreateTO(String type, String name,String linkToAsset) throws InterruptedException {
+    public static void CreateTO(String type, String name, String linkToAsset) throws InterruptedException {
 
-        if ($(By.xpath(".//*[@id='genericConfirmPanelNo']")).isDisplayed()){
+        if ($(By.xpath(".//*[@id='genericConfirmPanelNo']")).isDisplayed()) {
             $(By.xpath(".//*[@id='genericConfirmPanelNo']")).click();
         }
         //Click plus button
@@ -20,7 +20,7 @@ public class CreateNew {
         $(By.xpath(".//*[@id='menuForm:typeMenu']")).waitUntil(enabled, 10000).selectOption(type);
         Thread.sleep(500);
         //Link to Asset
-        if ($(By.xpath(".//*[@id='menuForm:icMenu']")).exists()){
+        if ($(By.xpath(".//*[@id='menuForm:icMenu']")).exists()) {
             $(By.xpath(".//*[@id='menuForm:icMenu']")).selectOption(linkToAsset);
         }
         $(By.xpath(".//*[@id='menuForm:yes']")).click();
@@ -36,7 +36,7 @@ public class CreateNew {
         $(By.xpath(".//*[@id='targetObjectForm:abbreviation']")).sendKeys(type.toUpperCase());
 
         //Select Subtype
-        if ($(By.xpath(".//*[@id='targetObjectForm:subtypes']")).exists()){
+        if ($(By.xpath(".//*[@id='targetObjectForm:subtypes']")).exists()) {
             $(By.xpath(".//*[@id='targetObjectForm:subtypes']")).click();
 
             $(By.xpath(".//*[@id='subtypeSelectionForm:subtypeSelection_personTable:0:subtypeSelectionstate0_fake']")).click();

@@ -1,4 +1,4 @@
-package tests.SecurityConceptCreation;
+package tests.SecurityConceptCreation.utils;
 
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;

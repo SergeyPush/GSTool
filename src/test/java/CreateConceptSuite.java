@@ -1,7 +1,7 @@
-package tests.SecurityConceptCreation;
-
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import tests.SecurityConceptCreation.Test001_CreateNewSecurityConcept;
+import tests.SecurityConceptCreation.Test002_CreateITAssetSet;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
@@ -10,5 +10,5 @@ import org.junit.runners.Suite;
 
 
 })
-public class CreateConcept {
+public class CreateConceptSuite {
 }

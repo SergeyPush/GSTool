@@ -1,4 +1,4 @@
-package tests.SecurityConceptCreation;
+package tests.SecurityConceptCreation.utils;
 
 import utils.Property_Loader;
 

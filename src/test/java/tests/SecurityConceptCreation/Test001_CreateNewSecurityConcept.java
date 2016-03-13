@@ -4,6 +4,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
+import tests.SecurityConceptCreation.utils.AbstractClass;
+import tests.SecurityConceptCreation.utils.SelectView;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -13,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Test001_CreateNewSecurityConcept extends AbstractClass{
+public class Test001_CreateNewSecurityConcept extends AbstractClass {
 
 
     @Test
