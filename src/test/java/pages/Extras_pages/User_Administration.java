@@ -71,6 +71,7 @@ public class User_Administration {
     }
 
     public void editUserPassword(String name, String password) throws InterruptedException {
+        Thread.sleep(500);
         driver.findElement(By.partialLinkText(name)).click();
         Thread.sleep(1500);
         editButton.click();
@@ -108,7 +109,7 @@ public class User_Administration {
 
         driver.findElement(By.xpath(".//*[@id='notificationDialog-confirm']")).click();
         driver.findElement(By.xpath(".//*[@id='toolBarForm:imgReload']")).click();
-        driver.navigate().to(Property_Loader.loadProperty("site.url")+"/targetObject.jsf");
+        driver.navigate().to(Property_Loader.loadProperty("site.url") + "/targetObject.jsf");
     }
 
     public void AddyAdminRolle(String username) throws InterruptedException {
@@ -131,7 +132,7 @@ public class User_Administration {
 
         rolesButton.click();
         Thread.sleep(500);
-        String role = "//*[contains(text(), '"+rolename+"')]/../../../..//input";
+        String role = "//*[contains(text(), '" + rolename + "')]/../../../..//input";
         driver.findElement(By.xpath(role)).click();
         new WebDriverWait(driver, 5).until(ExpectedConditions
                 .elementToBeClickable(By.xpath(".//*[@id='role_panel_mpBForm:save_link']")));
@@ -139,8 +140,6 @@ public class User_Administration {
 
         new WebDriverWait(driver, 5).until(ExpectedConditions
                 .invisibilityOfElementLocated(By.xpath(".//*[@id='role_panelHeader']")));
-
-
 
 
     }

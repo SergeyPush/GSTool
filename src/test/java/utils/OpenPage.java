@@ -19,7 +19,7 @@ public class OpenPage extends BaseClass {
         String view2 = "//a[contains(text(), '" + view + "')]";
 
 
-        Thread.sleep(1000);
+        Thread.sleep(500);
 
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(view2)));
         driver.findElement(By.xpath(view2)).click();

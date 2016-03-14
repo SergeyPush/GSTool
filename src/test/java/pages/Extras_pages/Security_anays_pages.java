@@ -80,6 +80,7 @@ public class Security_anays_pages {
     }
 
     public void SetProtectionRequirement(String confidentiality, String integrity, String availability, String description) throws InterruptedException {
+        Thread.sleep(500);
         driver.findElement(By.xpath(".//*[@id='securityAnalysisForm:protectionRequirementTab_lbl']")).click();
         Thread.sleep(500);
 

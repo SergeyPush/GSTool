@@ -37,7 +37,7 @@ public class PR extends AbstractClass {
 
         //-- Set Availability --
         $(By.xpath(".//*[@id='targetObjectForm:prRepeat:2:category']")).selectOption(availability);
-        $(By.xpath(".//*[@id='targetObjectForm:prRepeat:2:reason']")).setValue(text + " for " + integrity + " integrity");
+        $(By.xpath(".//*[@id='targetObjectForm:prRepeat:2:reason']")).setValue(text + " for " + integrity + " availability");
 
         //Click save button
         $(By.xpath(".//*[@id='saveEnabled']")).waitUntil(enabled, 6000).click();

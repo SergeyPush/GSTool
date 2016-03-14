@@ -11,7 +11,7 @@ import ru.yandex.qatools.allure.annotations.Title;
 import utils.*;
 
 
-public class Test001_SelectCreatedTO extends BaseClass{
+public class Test001_SelectCreatedTO extends BaseClass {
 
     @Features("Security Analysis")
     @Test

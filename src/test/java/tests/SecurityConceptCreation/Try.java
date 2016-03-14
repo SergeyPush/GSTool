@@ -17,15 +17,15 @@ public class Try extends AbstractClass {
     public void testName() throws Exception {
 
         SelectView.OpenPage(Grundschutz, Security_Check);
-        $(By.partialLinkText("Lawyer Agency")).waitUntil(present, 8000).click();
+        $(By.partialLinkText("Lawyer Agency")).waitUntil(enabled, 10000).click();
         $(By.partialLinkText("Anforderungsmanagement")).waitUntil(visible, 8000).click();
 
         $(By.xpath(".//*[@id='securityCheckForm:tabModuleAdditionalControl_lbl']")).click();
         ElementsCollection l = $$(By.xpath(".//*[@id='securityCheckForm:taskRealization_additionalControlForMe']//div/select"));
-        for (SelenideElement element:l){
-            Thread.sleep(400);
+        for (SelenideElement element : l) {
+
             element.selectOption("No");
-            Thread.sleep(400);
+
         }
 
         $("#saveEnabled").click();
