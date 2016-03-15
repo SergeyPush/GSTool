@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
+import utils.OpenPluses;
 import utils.OpenView;
 import utils.TargetObject;
 
@@ -25,6 +26,9 @@ public class Test001_Select_Created_TO extends GSTAbstractClass{
 
         TargetObject.CreateNew("Building", TOname, "Lawyer Agency");
 
+        OpenView.NavigateTO(Grundschutz, SecurityAnalysis);
+
+        OpenPluses.ExpandAll();
 
         $(By.partialLinkText(TOname)).shouldBe(visible).shouldHave(text(TOname));
     }

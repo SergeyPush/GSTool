@@ -13,7 +13,7 @@ import utils.*;
 public class Test001_SelectCreatedTO extends BaseClass {
 
 
-    public void testSelectExistingTO() throws Exception {
+    public void SelectExistingTO() throws Exception {
 
         LoginUser.LoginProperly();
         OpenPage.SelectView(IT_Grundscutz, Inventory_Analysis);
