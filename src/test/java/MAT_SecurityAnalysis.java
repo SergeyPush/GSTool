@@ -1,10 +1,8 @@
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import tests.MAT_Security_analysis.*;
+import tests.MAT_Security_analysis_OLD.*;
 import utils.BaseClass;
 
 

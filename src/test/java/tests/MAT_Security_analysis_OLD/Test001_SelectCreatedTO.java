@@ -1,10 +1,9 @@
-package tests.MAT_Security_analysis;
+package tests.MAT_Security_analysis_OLD;
 
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import pages.Common;
 import pages.GrundSchutz;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
@@ -13,9 +12,7 @@ import utils.*;
 
 public class Test001_SelectCreatedTO extends BaseClass {
 
-    @Features("Security Analysis")
-    @Test
-    @Title("Test create new user")
+
     public void testSelectExistingTO() throws Exception {
 
         LoginUser.LoginProperly();

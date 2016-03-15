@@ -28,7 +28,7 @@ public class testSelenide extends NewAbstract {
 
         $("#saveEnabled").waitUntil(enabled, 6000).click();
 
-        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).shouldHave(text("Successfully saved"));
+        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).shouldBe(visible).shouldHave(text("Successfully saved"));
 
     }
 }
