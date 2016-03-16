@@ -1,11 +1,10 @@
-package tests.MAT_USER_AND_ROLES;
+package tests.MAT_USER_AND_ROLES_OLD;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import pages.Extras;
 import ru.yandex.qatools.allure.annotations.Features;
-import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.BaseClass;
 import utils.LoginUser;

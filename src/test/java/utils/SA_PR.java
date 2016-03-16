@@ -44,7 +44,7 @@ public class SA_PR extends AbstractClass {
         //Click save button
         $(By.xpath(".//*[@id='saveEnabled']")).waitUntil(enabled, 6000).click();
 
-        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 15000).shouldHave(text("Successfully saved"));
+        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(present, 15000).shouldHave(text("Successfully saved"));
     }
 
 

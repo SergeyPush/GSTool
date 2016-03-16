@@ -1,4 +1,4 @@
-package tests.MAT_USER_AND_ROLES;
+package tests.MAT_USER_AND_ROLES_OLD;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,10 +13,8 @@ import utils.RandomName;
 public class Test001_Add_New_User extends BaseClass{
 
 
-    @Test
-    @Features("User management")
-    @Title("Test create new user")
-    public void testAddNewUser() throws InterruptedException {
+
+    public void AddNewUser() throws InterruptedException {
 
         LoginUser.LoginProperly();
 

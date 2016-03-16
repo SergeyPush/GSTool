@@ -37,7 +37,7 @@ public class CreateNew {
 
 
         //Enter tocken
-        Thread.sleep(1000);
+        Thread.sleep(500);
         $(By.xpath(".//*[@id='targetObjectForm:abbreviation']")).sendKeys(type.toUpperCase());
 
         //Select Subtype

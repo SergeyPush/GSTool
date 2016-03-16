@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
+import utils.Login;
 import utils.Property_Loader;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -28,7 +29,7 @@ public class AbstractClass {
         open(URL);
 
         if ($(By.xpath(".//*[@id='loginForm']/table")).isDisplayed()) {
-            LoginPage.LoginProperly();
+            Login.LoginProperly();
             SelectConcept.selectDefaultConcept();
         }
 

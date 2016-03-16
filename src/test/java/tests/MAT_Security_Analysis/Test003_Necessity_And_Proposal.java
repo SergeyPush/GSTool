@@ -44,7 +44,7 @@ public class Test003_Necessity_And_Proposal extends GSTAbstractClass{
 
         //Click Save button
         $("#saveEnabled").click();
-
+        Thread.sleep(1000);
         //Assertions
         $(By.xpath(".//*[@id='securityAnalysisForm:suggestionNecessityGrid']/tbody/tr/td[4]")).shouldHave(text("yes"));
         $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 15000).shouldHave(text("Successfully saved")).shouldHave(text(TOname));

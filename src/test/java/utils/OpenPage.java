@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class OpenPage extends BaseClass {
 
 
-    public static void SelectView (String section, String view) throws InterruptedException {
+    public static void SelectView(String section, String view) throws InterruptedException {
 
         Thread.sleep(500);
 

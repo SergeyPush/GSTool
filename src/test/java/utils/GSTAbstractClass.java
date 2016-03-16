@@ -6,7 +6,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class GSTAbstractClass {
@@ -15,6 +15,9 @@ public class GSTAbstractClass {
     public String SecurityCheck = "Security Check";
     public String InventoryAnalysis = "Inventory Analysis";
     public String SecurityAnalysis = "Security Analysis";
+
+    public String UserAdministration = "User Administration";
+    public String RoleAdministration = "Role Administration";
 
     public String normal = "normal";
     public String high = "high";
@@ -25,12 +28,19 @@ public class GSTAbstractClass {
 
         String URL = Property_Loader.loadProperty("site.url") + "/targetObject.jsf";
         System.out.println(URL);
-        Configuration.browser = "chrome";
+//        Configuration.browser = "chrome";
         open(URL);
 
         if ($(By.xpath(".//*[@id='loginForm']/table")).exists()) {
             Login.LoginProperly();
-            $(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")).waitUntil(visible, 10000).click();
+        }
+
+        $("#closeChangeSafetyConcept").waitUntil(enabled, 10000).click();
+
+        $("#changeSafetyConceptPanelHeader").waitUntil(disappear, 8000);
+
+        if ($("#changeSafetyConceptPanelHeader").isDisplayed()){
+            $("closeChangeSafetyConcept").click();
         }
 
 

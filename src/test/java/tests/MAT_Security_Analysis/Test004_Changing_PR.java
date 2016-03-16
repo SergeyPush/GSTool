@@ -31,7 +31,7 @@ public class Test004_Changing_PR extends GSTAbstractClass{
         SA_PR.setPRforTO(normal, high, veryHigh, Description);
 
 
-        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 8000).shouldHave(text("Successfully saved")).shouldHave(text(TOname));
+        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(present, 8000).shouldHave(text("Successfully saved")).shouldHave(text(TOname));
 
 
     }

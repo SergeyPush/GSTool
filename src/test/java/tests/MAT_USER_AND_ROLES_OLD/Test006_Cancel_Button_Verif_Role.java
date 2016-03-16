@@ -1,4 +1,4 @@
-package tests.MAT_USER_AND_ROLES;
+package tests.MAT_USER_AND_ROLES_OLD;
 
 import org.junit.Assert;
 import org.junit.Test;
