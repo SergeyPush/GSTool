@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import tests.SecurityConceptCreation.utils.*;
+import utils.SA_PR;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -35,16 +36,14 @@ public class Test002_CreateITAssetSet extends AbstractClass {
 
     @Test
     public void test_001CreateItAssetSet() throws Exception {
-        CreateNew.CreateTO("IT asset set", "Lawyer Agency", null);
+        CreateNew.CreateTO("IT asset set", ITAsset, null);
     }
 
     @Test
     public void test_002CreateBuilding() throws Exception {
         CreateNew.CreateTO("Building", Building1, ITAsset);
-        PR.setPRforTO(normal, high, veryHigh, ToDescription);
 
         CreateNew.CreateTO("Building", Building2, ITAsset);
-        PR.setPRforTO(high, normal, normal, ToDescription);
     }
 
     @Test

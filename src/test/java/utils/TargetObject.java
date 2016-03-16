@@ -33,7 +33,7 @@ public class TargetObject {
         $("#saveEnabled").waitUntil(enabled, 8000);
         $(By.xpath(".//*[@id='targetObjectForm:name']")).val(name);
 
-        //Enter tocken
+        //Enter token
         $(By.xpath(".//*[@id='targetObjectForm:abbreviation']")).val(type.toUpperCase());
 
         //Select Subtype
