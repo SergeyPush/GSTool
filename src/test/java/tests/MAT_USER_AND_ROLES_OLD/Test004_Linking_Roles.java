@@ -13,10 +13,8 @@ import utils.RandomName;
 
 public class Test004_Linking_Roles extends BaseClass {
 
-    @Features("User management")
-    @Test
-    @Title("Add more roles to existing user")
-    public void testName() throws Exception {
+
+    public void Name() throws Exception {
         LoginUser.LoginProperly();
 
         String Username = RandomName.readFromFile().get(0);

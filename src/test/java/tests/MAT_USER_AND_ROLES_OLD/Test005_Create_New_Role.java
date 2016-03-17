@@ -13,10 +13,8 @@ import utils.RandomName;
 
 public class Test005_Create_New_Role extends BaseClass {
 
-    @Features("User management")
-    @Test
-    @Title("Create new role")
-    public void testCreateNewRole() throws Exception {
+
+    public void CreateNewRole() throws Exception {
 
         LoginUser.LoginProperly();
 
