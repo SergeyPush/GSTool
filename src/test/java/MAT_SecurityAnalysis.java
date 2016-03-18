@@ -3,7 +3,6 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import tests.MAT_Security_Analysis.*;
-import utils.BaseClass;
 
 
 @RunWith(Suite.class)
@@ -18,7 +17,7 @@ import utils.BaseClass;
         Test010_Delete_Created_TO.class
 
 })
-public class MAT_SecurityAnalysis extends BaseClass {
+public class MAT_SecurityAnalysis{
 
     @BeforeClass
     public static void setUp() {

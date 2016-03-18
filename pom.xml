@@ -22,8 +22,8 @@
             </activation>
 
             <properties>
-                <user.username>automan</user.username>
-                <user.password>a12345678</user.password>
+                <user.username>admin</user.username>
+                <user.password>gst12345</user.password>
                 <site.url>http://localhost:9090/gst2016/gstool</site.url>
                 <browser.name>chrome</browser.name>
             </properties>

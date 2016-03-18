@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import tests.SecurityConceptCreation.utils.AbstractClass;
-import tests.SecurityConceptCreation.utils.SelectView;
+import utils.OpenView;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -22,7 +22,7 @@ public class Test001_CreateNewSecurityConcept extends AbstractClass {
     public void test001CreateNewSecurityConcept() throws Exception {
 
 
-        SelectView.OpenPage("Security Concepts");
+        OpenView.NavigateTO("Security Concepts");
 
         String conceptName = "TestConcept";
 
@@ -30,7 +30,7 @@ public class Test001_CreateNewSecurityConcept extends AbstractClass {
         $("#newEnabled").waitUntil(enabled, 6000).click();
         $(By.xpath(".//*[@id='currentObjectForm:alteredPanel']")).waitUntil(visible, 6000);
 
-
+        //Ged data and time for Security Concept
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Date date = new Date(timestamp.getTime());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -50,6 +50,8 @@ public class Test001_CreateNewSecurityConcept extends AbstractClass {
         //Asserts
         $(By.xpath(".//*[@id='currentObjectForm:alteredPanel']")).waitUntil(disappear, 6000);
         $(By.xpath(".//*[@id='footerForm:currentSCV']")).waitUntil(hasText(conceptName), 10000);
+
+        $(By.partialLinkText(conceptName)).click();
     }
 
     @Test

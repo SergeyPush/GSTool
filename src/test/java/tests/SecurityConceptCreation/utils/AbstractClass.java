@@ -32,8 +32,6 @@ public class AbstractClass {
             Login.LoginProperly();
             SelectConcept.selectDefaultConcept();
         }
-
-
     }
 
     @AfterClass

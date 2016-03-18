@@ -42,6 +42,7 @@ public class Test004_Convert_User_To_Employee extends GSTAbstractClass {
         OpenPluses.ExpandAll();
 
         $(By.partialLinkText(username)).shouldBe(present, enabled);
+        Thread.sleep(1000);
 
     }
 }

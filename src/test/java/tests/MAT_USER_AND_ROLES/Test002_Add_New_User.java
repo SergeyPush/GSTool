@@ -16,7 +16,6 @@ public class Test002_Add_New_User extends GSTAbstractClass {
     @Features("User management")
     @Test
     @Title("Test create new user")
-
     public void testAddNewUser() {
 
         OpenView.openExtras(UserAdministration);

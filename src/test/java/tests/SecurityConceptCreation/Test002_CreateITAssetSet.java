@@ -6,7 +6,9 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import tests.SecurityConceptCreation.utils.*;
+import utils.OpenView;
 import utils.SA_PR;
+import utils.TargetObject;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -15,72 +17,72 @@ import static com.codeborne.selenide.Selenide.$;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Test002_CreateITAssetSet extends AbstractClass {
 
-    String ITAsset = "Lawyer Agency";
-    String Building1 = "Headquarters";
-    String Building2 = "Remote Office";
-    String Room = "Main room";
-    String Network = "Local network";
-    String ItSystem = "PC";
-    String Application = "Microsoft Office";
-    String BusinessProcess = "Make money";
-    String Information = "Database";
-    String Employee1 = "Admin";
-    String Employee2 = "Boss";
+    public String ITAsset = "Lawyer Agency";
+    public String Building1 = "Headquarters";
+    public String Building2 = "Remote Office";
+    public String Room = "Main room";
+    public String Network = "Local network";
+    public String ItSystem = "PC";
+    public String Application = "Microsoft Office";
+    public String BusinessProcess = "Make money";
+    public String Information = "Database";
+    public String Employee1 = "Admin";
+    public String Employee2 = "Boss";
 
     String ToDescription = "Some description";
 
     @Before
     public void setUp() throws Exception {
-        SelectView.OpenPage("IT-Grundschutz", "Inventory Analysis");
+        OpenView.NavigateTO("IT-Grundschutz", "Inventory Analysis");
     }
 
     @Test
     public void test_001CreateItAssetSet() throws Exception {
-        CreateNew.CreateTO("IT asset set", ITAsset, null);
+        TargetObject.CreateNew("IT asset set", ITAsset, null);
     }
 
     @Test
     public void test_002CreateBuilding() throws Exception {
-        CreateNew.CreateTO("Building", Building1, ITAsset);
+        TargetObject.CreateNew("Building", Building1, ITAsset);
 
-        CreateNew.CreateTO("Building", Building2, ITAsset);
+        TargetObject.CreateNew("Building", Building2, ITAsset);
     }
 
     @Test
     public void test_003CreateRoom() throws Exception {
-        CreateNew.CreateTO("Room", Room, ITAsset);
+        TargetObject.CreateNew("Room", Room, ITAsset);
     }
 
     @Test
     public void test_004CreateNetwork() throws Exception {
-        CreateNew.CreateTO("Network", Network, ITAsset);
+        TargetObject.CreateNew("Network", Network, ITAsset);
     }
 
     @Test
     public void test_005CreateITsystem() throws Exception {
-        CreateNew.CreateTO("IT system", ItSystem, ITAsset);
+        TargetObject.CreateNew("IT system", ItSystem, ITAsset);
     }
 
     @Test
     public void test_006CreateApplication() throws Exception {
-        CreateNew.CreateTO("Application", Application, ITAsset);
+        TargetObject.CreateNew("Application", Application, ITAsset);
     }
 
     @Test
     public void test_007CreateBusinessProcess() throws Exception {
-        CreateNew.CreateTO("Business process", BusinessProcess, ITAsset);
+        TargetObject.CreateNew("Business process", BusinessProcess, ITAsset);
     }
 
     @Test
     public void test_008CreateInformation() throws Exception {
-        CreateNew.CreateTO("Information", Information, ITAsset);
+        TargetObject.CreateNew("Information", Information, ITAsset);
     }
 
     @Test
     public void test_009CreateEmployee() throws Exception {
-        CreateNew.CreateTO("Employee", Employee1, ITAsset);
+        TargetObject.CreateNew("Employee", Employee1, ITAsset);
 
-        CreateNew.CreateTO("Employee", Employee2, ITAsset);
+        TargetObject.CreateNew("Employee", Employee2, ITAsset);
     }
 
     @Test

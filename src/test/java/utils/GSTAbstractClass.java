@@ -26,9 +26,10 @@ public class GSTAbstractClass {
     @BeforeClass
     public static void setUpClass() throws Exception {
 
+
         String URL = Property_Loader.loadProperty("site.url") + "/targetObject.jsf";
         System.out.println(URL);
-//        Configuration.browser = "chrome";
+        Configuration.browser = "chrome";
         open(URL);
 
         if ($(By.xpath(".//*[@id='loginForm']/table")).exists()) {

@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import tests.SecurityConceptCreation.utils.AbstractClass;
-import tests.SecurityConceptCreation.utils.SelectView;
+import utils.OpenView;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
@@ -16,7 +16,7 @@ public class Try extends AbstractClass {
     @Test
     public void testName() throws Exception {
 
-        SelectView.OpenPage(Grundschutz, Security_Check);
+        OpenView.NavigateTO(Grundschutz, Security_Check);
         $(By.partialLinkText("Lawyer Agency")).waitUntil(enabled, 10000).click();
         $(By.partialLinkText("Anforderungsmanagement")).waitUntil(visible, 8000).click();
 
