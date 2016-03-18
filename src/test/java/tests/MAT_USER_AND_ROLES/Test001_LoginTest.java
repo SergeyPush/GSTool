@@ -15,7 +15,7 @@ public class Test001_LoginTest {
     @BeforeClass
     public static void setUpStat() throws Exception {
         String URL = Property_Loader.loadProperty("site.url") + "/targetObject.jsf";
-        Configuration.browser = "chrome";
+        Configuration.browser = Property_Loader.loadProperty("browser.name");
         open(URL);
     }
 

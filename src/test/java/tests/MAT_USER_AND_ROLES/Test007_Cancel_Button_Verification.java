@@ -33,7 +33,7 @@ public class Test007_Cancel_Button_Verification extends GSTAbstractClass{
         $("#discardEnabled").waitUntil(enabled, 8000).click();
 
         //Assert
-        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).shouldNotBe(visible);
+        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).shouldNot(appear);
 
 
     }

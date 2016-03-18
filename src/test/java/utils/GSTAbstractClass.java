@@ -29,7 +29,7 @@ public class GSTAbstractClass {
 
         String URL = Property_Loader.loadProperty("site.url") + "/targetObject.jsf";
         System.out.println(URL);
-        Configuration.browser = "chrome";
+        Configuration.browser = Property_Loader.loadProperty("browser.name");
         open(URL);
 
         if ($(By.xpath(".//*[@id='loginForm']/table")).exists()) {
