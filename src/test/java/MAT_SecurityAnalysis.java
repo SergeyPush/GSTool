@@ -3,6 +3,7 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import tests.MAT_Security_Analysis.*;
+import tests.SecurityConceptCreation.utils.AbstractClass;
 
 
 @RunWith(Suite.class)
@@ -17,10 +18,10 @@ import tests.MAT_Security_Analysis.*;
         Test010_Delete_Created_TO.class
 
 })
-public class MAT_SecurityAnalysis{
+public class MAT_SecurityAnalysis extends AbstractClass{
 
     @BeforeClass
-    public static void setUp() {
+    public static void setUpClass() {
         System.out.println("STARTING SUITE...");
     }
 

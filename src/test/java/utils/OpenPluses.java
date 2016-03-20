@@ -11,7 +11,8 @@ public class OpenPluses extends GSTAbstractClass {
 
     public static void ExpandAll() throws InterruptedException {
         Thread.sleep(1000);
-        ElementsCollection list = $$("._a>img");
+
+        ElementsCollection list = $$("#to_dataList_datalistScrollableContainer ._a>img");
 
         for (SelenideElement elm : list) {
 

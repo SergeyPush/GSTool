@@ -25,7 +25,8 @@ public class Test001_LoginTest {
     public void failedLogin1() throws Exception {
 
         $("#j_username").val("wronglogin").pressEnter();
-        $("#loginMessage").waitUntil(present, 8000).shouldHave(text("Benutzername unbekannt oder Kennwort ungültig"));
+        $("#loginMessage").shouldHave(text("Benutzername unbekannt oder Kennwort ungültig"));
+        refresh();
 
     }
 
@@ -34,11 +35,13 @@ public class Test001_LoginTest {
     @Title("Try to login with wrong credentials")
     public void failedLogin2() throws Exception {
 
+        refresh();
         $("#j_username").val("wronglogin");
         $("#j_password").val("wrongpass").pressEnter();
 
 
-        $("#loginMessage").waitUntil(present, 8000).shouldHave(text("Benutzername unbekannt oder Kennwort ungültig"));
+        $("#loginMessage").shouldHave(text("Benutzername unbekannt oder Kennwort ungültig"));
+
 
     }
 }

@@ -4,9 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
-import utils.GSTAbstractClass;
-import utils.OpenView;
-import utils.RandomName;
+import utils.*;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.texts;
@@ -19,7 +17,7 @@ public class Test009_User_Rights_Verification extends GSTAbstractClass{
     @Features("User management")
     @Test
     @Title("Add permission to the role, verify that permissions work")
-    public void testUserRightsVerification() {
+    public void testUserRightsVerification() throws InterruptedException {
 
         OpenView.openExtras(UserAdministration);
 
@@ -48,10 +46,23 @@ public class Test009_User_Rights_Verification extends GSTAbstractClass{
         $$(By.xpath(".//*[@id='RoleDataList:j_id686']//*[@class='toggle_item_label']")).shouldHave(size(1)).shouldHave(texts(rolename));
 
 
+        //Logout
+        $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(enabled, 6000).click();
 
-//        TODO Make logout and login of newly created user and role
-//        TODO Create new TO
 
+        //Login with new credentials and select concept
+        Login.LoginAs(username, password);
+        $(By.xpath(".//*[@id='changeSafetyConceptForm:safetyConceptGroupMenu']")).selectOption(1);
+        $(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")).waitUntil(enabled, 6000).click();
+
+
+        //Create TO
+        String TOname = "tempBuilding";
+        TargetObject.CreateNew("Gebäude", TOname, null);
+
+        //Assert
+        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 10000).shouldHave(text("Speichern erfolgreich abgeschlossen")).shouldHave(text(TOname));
+        $(By.partialLinkText(TOname)).waitUntil(present, 8000).shouldBe(visible, enabled);
 
 
     }

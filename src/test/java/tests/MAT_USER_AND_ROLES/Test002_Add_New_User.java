@@ -31,7 +31,7 @@ public class Test002_Add_New_User extends GSTAbstractClass {
         $(By.xpath(".//*[@id='userAdministrationForm:account']")).val(username);
 
         //Uncheck 'Password must be changed'
-        $(By.xpath(".//*[@id='userAdministrationForm:isChangePassword']")).click();
+        $(By.xpath(".//*[@id='userAdministrationForm:isChangePassword']")).setSelected(false);
 
         //Enter and repeat password
         $(By.xpath(".//*[@id='userAdministrationForm:newPassword']")).val(password);

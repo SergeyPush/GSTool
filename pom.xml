@@ -44,7 +44,7 @@
                 <user.username>automan</user.username>
                 <user.password>a12345678</user.password>
                 <site.url>http://10.211.55.3:9090/gst2016/gstool</site.url>
-                <browser.name>firefox</browser.name>
+                <browser.name>chrome</browser.name>
             </properties>
 
             <build>

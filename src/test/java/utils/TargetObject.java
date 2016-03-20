@@ -47,7 +47,7 @@ public class TargetObject {
         //Click save button
         $(By.xpath(".//*[@id='saveEnabled']")).waitUntil(enabled, 6000).click();
 
-        $(By.xpath(".//*[@id='footerForm:message']/dt")).waitUntil(visible, 60000).shouldHave(text("Successfully saved"));
+        $(By.xpath(".//*[@id='footerForm:message']/dt")).waitUntil(visible, 60000);
 
 
     }
