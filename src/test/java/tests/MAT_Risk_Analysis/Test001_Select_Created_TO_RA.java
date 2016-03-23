@@ -71,7 +71,7 @@ public class Test001_Select_Created_TO_RA extends GSTAbstractClass {
     public void testSelectCreatedTO2() throws Exception {
         //Navigate to RA find created TO
         OpenView.NavigateTO(Grundschutz, RiskAnalysis);
-        $("#resetThreatEvaluationEnabled").waitUntil(present, 60000);
+
         OpenPluses.ExpandAll();
         $(By.partialLinkText(TOname)).shouldBe(visible).shouldHave(text(TOname));
     }

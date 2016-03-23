@@ -21,8 +21,8 @@ public class OpenView {
 
         $(By.xpath("//a[contains(text(), '" + tab + "')]")).waitUntil(enabled, 30000);
 
-        if ($("#blockall").is(visible) || $("#blockall").is(present) || $("#blockall").is(enabled)) {
-            $("#blockall").waitUntil(disappears, 60000);
+        if (tab.equals("Risk Analysis")) {
+            $("#resetThreatEvaluationEnabled").waitUntil(present, 60000);
         }
 
     }
