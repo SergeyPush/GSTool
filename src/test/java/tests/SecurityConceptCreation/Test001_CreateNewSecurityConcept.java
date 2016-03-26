@@ -1,9 +1,7 @@
 package tests.SecurityConceptCreation;
 
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
+import org.testng.annotations.Test;
 import tests.SecurityConceptCreation.utils.AbstractClass;
 import utils.OpenView;
 
@@ -11,10 +9,9 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Test001_CreateNewSecurityConcept extends AbstractClass {
 
 

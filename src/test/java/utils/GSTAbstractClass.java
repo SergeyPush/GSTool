@@ -2,9 +2,9 @@ package utils;
 
 
 import com.codeborne.selenide.Configuration;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -25,7 +25,7 @@ public class GSTAbstractClass {
     public String high = "high";
     public String veryHigh = "very high";
 
-    @BeforeClass
+    @BeforeTest
     public static void setUpClass() throws Exception {
 
 
@@ -56,7 +56,7 @@ public class GSTAbstractClass {
 
     }
 
-    @AfterClass
+    @AfterTest
     public static void tearDownClass() {
 
         if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).is(visible) || $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).is(enabled)) {

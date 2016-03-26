@@ -1,6 +1,6 @@
-package tests.MAT_USER_AND_ROLES;
+package tests.MAT_Users_And_Roles;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
@@ -66,4 +66,15 @@ public class Test009_User_Rights_Verification extends GSTAbstractClass{
 
 
     }
+
+    @Test(dependsOnMethods = "testUserRightsVerification")
+    @Title("Add permission to the role, verify that permissions work")
+    public void testUserRightsVerificationRelogin() throws InterruptedException {
+
+        //Logout amd login
+        $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
+        Login.LoginProperly();
+        $("#closeChangeSafetyConcept").waitUntil(enabled, 10000).click();
+    }
+
 }

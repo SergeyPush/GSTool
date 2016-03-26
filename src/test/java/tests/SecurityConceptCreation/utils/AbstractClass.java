@@ -1,9 +1,9 @@
 package tests.SecurityConceptCreation.utils;
 
 import com.codeborne.selenide.Configuration;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import utils.Login;
 import utils.Property_Loader;
 

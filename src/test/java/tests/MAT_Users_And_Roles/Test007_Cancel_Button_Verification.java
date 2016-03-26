@@ -1,7 +1,7 @@
-package tests.MAT_USER_AND_ROLES;
+package tests.MAT_Users_And_Roles;
 
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;

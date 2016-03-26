@@ -1,6 +1,6 @@
 package tests.MAT_Security_Analysis;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
@@ -27,5 +27,8 @@ public class Test002_QuickSearch_TO extends GSTAbstractClass{
         $(By.xpath(".//*[@id='dataListID:j_id314']/img")).click();
 
         $(By.partialLinkText(TOname)).shouldBe(visible).shouldHave(text(TOname));
+
+        //Click Reset filter
+        $(By.xpath(".//*[@id='dataListID:j_id316']/img")).waitUntil(enabled, 8000).click();
     }
 }

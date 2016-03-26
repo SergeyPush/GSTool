@@ -1,8 +1,7 @@
-package tests.MAT_USER_AND_ROLES;
+package tests.MAT_Users_And_Roles;
 import com.codeborne.selenide.Configuration;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.Property_Loader;

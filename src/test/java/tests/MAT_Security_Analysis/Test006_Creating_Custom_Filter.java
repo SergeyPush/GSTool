@@ -2,7 +2,7 @@ package tests.MAT_Security_Analysis;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;

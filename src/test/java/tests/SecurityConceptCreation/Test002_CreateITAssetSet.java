@@ -1,20 +1,16 @@
 package tests.SecurityConceptCreation;
 
-import org.junit.Before;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
-import tests.SecurityConceptCreation.utils.*;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import tests.SecurityConceptCreation.utils.AbstractClass;
 import utils.OpenView;
-import utils.SA_PR;
 import utils.TargetObject;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.$;
 
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Test002_CreateITAssetSet extends AbstractClass {
 
     public String ITAsset = "Lawyer Agency";
@@ -31,7 +27,7 @@ public class Test002_CreateITAssetSet extends AbstractClass {
 
     String ToDescription = "Some description";
 
-    @Before
+    @BeforeClass
     public void setUp() throws Exception {
         OpenView.NavigateTO("IT-Grundschutz", "Inventory Analysis");
     }

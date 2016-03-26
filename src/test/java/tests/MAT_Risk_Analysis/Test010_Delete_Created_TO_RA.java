@@ -1,7 +1,7 @@
 package tests.MAT_Risk_Analysis;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
+import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
