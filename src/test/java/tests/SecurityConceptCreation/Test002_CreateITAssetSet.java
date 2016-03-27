@@ -3,6 +3,7 @@ package tests.SecurityConceptCreation;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Features;
 import tests.SecurityConceptCreation.utils.AbstractClass;
 import utils.OpenView;
 import utils.TargetObject;
@@ -27,6 +28,7 @@ public class Test002_CreateITAssetSet extends AbstractClass {
 
     String ToDescription = "Some description";
 
+    @Features("Create new Security Concept")
     @BeforeClass
     public void setUp() throws Exception {
         OpenView.NavigateTO("IT-Grundschutz", "Inventory Analysis");

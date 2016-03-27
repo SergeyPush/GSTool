@@ -23,7 +23,7 @@
     </test>
     <test name="Users and roles administration" preserve-order="true">
         <classes>
-            <!--<class name="tests.MAT_Users_And_Roless.Test001_LoginTest"/>-->
+            <!--<class name="tests.MAT_Users_And_Roles.Test001_LoginTest"/>-->
             <class name="tests.MAT_Users_And_Roles.Test002_Add_New_User"/>
             <class name="tests.MAT_Users_And_Roles.Test003_Cancel_Button_Verification"/>
             <class name="tests.MAT_Users_And_Roles.Test004_Convert_User_To_Employee"/>

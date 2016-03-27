@@ -2,6 +2,7 @@ package tests.SecurityConceptCreation;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Features;
 import tests.SecurityConceptCreation.utils.AbstractClass;
 import utils.OpenView;
 
@@ -14,7 +15,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class Test001_CreateNewSecurityConcept extends AbstractClass {
 
-
+    @Features("Create new Security Concept")
     @Test
     public void test001CreateNewSecurityConcept() throws Exception {
 
@@ -52,7 +53,7 @@ public class Test001_CreateNewSecurityConcept extends AbstractClass {
     }
 
     @Test
-    public void test002EnableLinckTOs() throws Exception {
+    public void test002EnableLinkTOs() throws Exception {
         //Open Settings
         $(By.xpath(".//*[@id='toolBarForm:imgConfiguration']")).waitUntil(enabled, 6000).click();
 
