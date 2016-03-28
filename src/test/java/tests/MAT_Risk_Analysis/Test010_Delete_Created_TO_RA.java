@@ -13,7 +13,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class Test010_Delete_Created_TO_RA extends GSTAbstractClass{
 
-    @Features("Risk Analysis")
     @Test
     @Title("Delete Created TO")
 

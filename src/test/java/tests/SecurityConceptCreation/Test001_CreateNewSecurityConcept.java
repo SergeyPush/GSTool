@@ -2,7 +2,7 @@ package tests.SecurityConceptCreation;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Title;
 import tests.SecurityConceptCreation.utils.AbstractClass;
 import utils.OpenView;
 
@@ -15,8 +15,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class Test001_CreateNewSecurityConcept extends AbstractClass {
 
-    @Features("Create new Security Concept")
+
     @Test
+    @Title("Create new security concept")
     public void test001CreateNewSecurityConcept() throws Exception {
 
 

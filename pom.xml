@@ -10,8 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <aspectj.version>1.7.4</aspectj.version>
-        <allure.version>1.4.23</allure.version>
+        <suite>TotalSuite.xml</suite>
     </properties>
 
     <profiles>
@@ -83,7 +82,7 @@
         <dependency>
             <groupId>ru.yandex.qatools.allure</groupId>
             <artifactId>allure-testng-adaptor</artifactId>
-            <version>${allure.version}</version>
+            <version>1.4.23</version>
         </dependency>
         <dependency>
             <groupId>com.codeborne</groupId>
@@ -105,19 +104,13 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.3</version>
-                    <configuration>
-                        <!-- put your configurations here -->
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.19.1</version>
                     <configuration>
                         <testFailureIgnore>true</testFailureIgnore>
+                        <systemPropertyVariables>
+                            <propertyName>suite</propertyName>
+                        </systemPropertyVariables>
                         <suiteXmlFiles>
                             <suiteXmlFile>src/test/java/${suite}</suiteXmlFile>
                         </suiteXmlFiles>

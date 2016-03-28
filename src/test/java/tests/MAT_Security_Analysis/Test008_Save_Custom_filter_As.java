@@ -2,17 +2,16 @@ package tests.MAT_Security_Analysis;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
 import utils.OpenView;
 
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 
 public class Test008_Save_Custom_filter_As extends GSTAbstractClass {
 
-    @Features("Security Analysis")
     @Test
     @Title("Save custom Filter As")
     public void testSaveFilterAs() throws Exception {

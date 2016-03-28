@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Create New Security Concept">
-    <test name="Create Security Concept" preserve-order="true">
+    <test name="Create Security Concept">
         <classes>
             <class name="tests.SecurityConceptCreation.Test001_CreateNewSecurityConcept"/>
             <class name="tests.SecurityConceptCreation.Test002_CreateITAssetSet"/>
-
+            <!--<class name="tests.SecurityConceptCreation.Test003_Delete_Security_Concept"/>-->
         </classes>
     </test>
 </suite>

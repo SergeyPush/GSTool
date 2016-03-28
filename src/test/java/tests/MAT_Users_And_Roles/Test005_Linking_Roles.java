@@ -1,20 +1,20 @@
 package tests.MAT_Users_And_Roles;
 
-import org.testng.annotations.Test;
 import org.openqa.selenium.By;
-import ru.yandex.qatools.allure.annotations.Features;
+import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
 import utils.OpenView;
 import utils.RandomName;
 
-import static com.codeborne.selenide.CollectionCondition.*;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.CollectionCondition.texts;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class Test005_Linking_Roles extends GSTAbstractClass{
 
-    @Features("User management")
     @Test
     @Title("Add more roles to existing user")
     public void testLinkingRoles() throws Exception {

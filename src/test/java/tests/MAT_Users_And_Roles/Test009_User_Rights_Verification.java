@@ -1,20 +1,19 @@
 package tests.MAT_Users_And_Roles;
 
-import org.testng.annotations.Test;
 import org.openqa.selenium.By;
-import ru.yandex.qatools.allure.annotations.Features;
+import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.*;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.texts;
-import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
-public class Test009_User_Rights_Verification extends GSTAbstractClass{
+public class Test009_User_Rights_Verification extends GSTAbstractClass {
 
 
-    @Features("User management")
     @Test
     @Title("Add permission to the role, verify that permissions work")
     public void testUserRightsVerification() throws InterruptedException {
@@ -22,8 +21,8 @@ public class Test009_User_Rights_Verification extends GSTAbstractClass{
         OpenView.openExtras(UserAdministration);
 
         //Select created user
-        String username  = RandomName.readFromFile().get(0);
-        String password  = RandomName.readFromFile().get(1);
+        String username = RandomName.readFromFile().get(0);
+        String password = RandomName.readFromFile().get(1);
         String rolename = "testrole";
 
         //Click Roles button

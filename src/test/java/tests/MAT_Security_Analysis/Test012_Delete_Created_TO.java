@@ -1,18 +1,16 @@
 package tests.MAT_Security_Analysis;
 
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
-import org.testng.annotations.Test;
 import org.openqa.selenium.By;
-import ru.yandex.qatools.allure.annotations.Features;
+import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
-import utils.OpenPluses;
 import utils.OpenView;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
 
 public class Test012_Delete_Created_TO extends GSTAbstractClass{
 
-    @Features("Security Analysis")
     @Test
     @Title("Delete Created TO ")
     public void testDeleteCreatedTO() throws InterruptedException {

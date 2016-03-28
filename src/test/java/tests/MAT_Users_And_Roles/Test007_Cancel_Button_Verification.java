@@ -1,18 +1,17 @@
 package tests.MAT_Users_And_Roles;
 
 
-import org.testng.annotations.Test;
 import org.openqa.selenium.By;
-import ru.yandex.qatools.allure.annotations.Features;
+import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
 import utils.OpenView;
-import static com.codeborne.selenide.Selenide.*;
+
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
 
 public class Test007_Cancel_Button_Verification extends GSTAbstractClass{
 
-    @Features("User management")
     @Test
     @Title("Cancel button verification for role")
     public void testCancelButtonVerification() throws Exception {

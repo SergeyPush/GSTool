@@ -3,7 +3,6 @@ package tests.MAT_Security_Analysis;
 
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
-import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
 import utils.OpenPluses;
@@ -13,7 +12,6 @@ import static com.codeborne.selenide.Condition.*;
 
 public class Test003_Necessity_And_Proposal extends GSTAbstractClass{
 
-    @Features("Security Analysis")
     @Test
     @Title("Change Necessity and Proposal")
     public void testChangeNecessityAndProposal() throws InterruptedException {

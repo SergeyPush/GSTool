@@ -2,14 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Complete test suite">
-    <test name="Create Security Concept" preserve-order="true">
+    <test name="Create Security Concept">
         <classes>
             <class name="tests.SecurityConceptCreation.Test001_CreateNewSecurityConcept"/>
             <class name="tests.SecurityConceptCreation.Test002_CreateITAssetSet"/>
         </classes>
     </test>
 
-    <test name="Testing Security Analysis" preserve-order="true">
+    <test name="Testing Security Analysis">
         <classes>
             <class name="tests.MAT_Security_Analysis.Test001_Select_Created_TO"/>
             <class name="tests.MAT_Security_Analysis.Test002_QuickSearch_TO"/>
@@ -26,7 +26,7 @@
         </classes>
     </test>
 
-    <test name="Users and roles administration" preserve-order="true">
+    <test name="Users and roles administration">
         <classes>
             <!--<class name="tests.MAT_Users_And_Roles.Test001_LoginTest"/>-->
             <class name="tests.MAT_Users_And_Roles.Test002_Add_New_User"/>

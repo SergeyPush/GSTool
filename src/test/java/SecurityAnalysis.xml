@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="MAT Security Analysis">
-    <test name="Testing Security Analysis View" preserve-order="true">
+    <test name="Testing Security Analysis View">
         <classes>
             <class name="tests.MAT_Security_Analysis.Test001_Select_Created_TO"/>
             <class name="tests.MAT_Security_Analysis.Test002_QuickSearch_TO"/>

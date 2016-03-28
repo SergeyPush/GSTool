@@ -14,7 +14,6 @@ import static com.codeborne.selenide.Condition.*;
 
 public class Test002_Select_Standard_Decider extends GSTAbstractClass{
 
-    @Features("Risk Analysis")
     @Test
     @Title("Select standard decider")
     public void selectStandardDecider() throws Exception {

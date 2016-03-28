@@ -1,21 +1,20 @@
 package tests.MAT_Users_And_Roles;
 
 
-import org.testng.annotations.Test;
 import org.openqa.selenium.By;
-import ru.yandex.qatools.allure.annotations.Features;
+import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
 import utils.OpenView;
 import utils.RandomName;
-import static com.codeborne.selenide.Selenide.*;
+
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
 
 public class Test011_Delete_Created_User extends GSTAbstractClass{
 
-    @Test()
-    @Features("User management")
     @Title("Delete existing user")
+    @Test()
     public void testDeleteCreatedUser() throws Exception {
 
         OpenView.openExtras(UserAdministration);

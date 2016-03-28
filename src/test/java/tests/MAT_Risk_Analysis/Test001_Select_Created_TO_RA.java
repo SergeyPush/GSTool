@@ -16,7 +16,6 @@ public class Test001_Select_Created_TO_RA extends GSTAbstractClass {
 
     public String TOname = "riskBuilding";
 
-    @Features("Risk Analysis")
     @Test
     @Title("Test create new TO and verify it in RA")
     public void testSelectCreatedTO1() throws Exception {

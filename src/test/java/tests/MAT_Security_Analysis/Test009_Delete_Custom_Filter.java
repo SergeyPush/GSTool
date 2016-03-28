@@ -7,13 +7,12 @@ import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
 import utils.OpenView;
 
-import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
 
 
 public class Test009_Delete_Custom_Filter extends GSTAbstractClass{
 
-    @Features("Security Analysis")
     @Test
     @Title("Delete custom filter")
     public void testDeleteCustomFilter1() throws Exception {
