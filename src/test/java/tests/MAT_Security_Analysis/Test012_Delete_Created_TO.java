@@ -10,13 +10,12 @@ import utils.GSTAbstractClass;
 import utils.OpenPluses;
 import utils.OpenView;
 
-public class Test010_Delete_Created_TO extends GSTAbstractClass{
+public class Test012_Delete_Created_TO extends GSTAbstractClass{
 
     @Features("Security Analysis")
     @Test
     @Title("Delete Created TO ")
-
-    public void deleteCreatedTO() throws InterruptedException {
+    public void testDeleteCreatedTO() throws InterruptedException {
 
         OpenView.NavigateTO(Grundschutz, InventoryAnalysis);
 //        OpenPluses.ExpandAll();

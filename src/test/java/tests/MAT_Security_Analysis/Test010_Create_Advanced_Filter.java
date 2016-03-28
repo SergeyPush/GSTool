@@ -10,7 +10,7 @@ import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
 import utils.OpenView;
 
-public class Test007_Create_Advanced_Filter extends GSTAbstractClass {
+public class Test010_Create_Advanced_Filter extends GSTAbstractClass {
 
 
     @Features("Security Analysis")
@@ -22,7 +22,7 @@ public class Test007_Create_Advanced_Filter extends GSTAbstractClass {
 
         String TOname = "testBuilding";
         String filterName = "advancedFilter";
-        String filter = "Target Object Subtype";
+        String filter = "Target Object Type";
         String TOtype= "Building";
 
         // Click Add new Filter
@@ -39,7 +39,8 @@ public class Test007_Create_Advanced_Filter extends GSTAbstractClass {
         $(By.xpath(".//*[@id='securityAnalysisFilterPanel_dataListFilterForm:newCondition']")).waitUntil(enabled, 8000).click();
 
         // Select parameters
-        $(By.xpath(".//*[@id='securityAnalysisFilterPanel_conditionPanel_Form:conditionField']")).selectOption(filter);
+        $(By.xpath(".//*[@id='securityAnalysisFilterPanel_conditionPanel_Form:conditionField']")).waitUntil(present, 8000).selectOption(filter);
+
         $(By.xpath(".//*[@id='securityAnalysisFilterPanel_conditionPanel_Form:conditionValueDropDawn']")).selectOption(TOtype);
         $(By.xpath(".//*[@id='securityAnalysisFilterPanel_conditionPanel_Form:addLink']")).waitUntil(enabled, 8000).click();
         $(By.xpath(".//*[@id='securityAnalysisFilterPanel_conditionPanel_Form:addLink']")).waitUntil(disappear, 8000);
@@ -53,6 +54,7 @@ public class Test007_Create_Advanced_Filter extends GSTAbstractClass {
         //Assertions
         $(By.partialLinkText(TOname)).shouldBe(visible, enabled);
 
+        //Reset filter
         $(By.xpath(".//*[@id='dataListID:filter_to_dataList_resetFilter_btn']/img")).waitUntil(enabled, 8000).click();
     }
 }

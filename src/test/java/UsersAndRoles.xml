@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Create New Security Concept">
-    <test name="Create Security Concept" preserve-order="true">
+<suite name="MAT Users And Roles">
+    <test name="Testing Users And Roles tabs" preserve-order="true">
         <classes>
             <!--<class name="tests.MAT_Users_And_Roless.Test001_LoginTest"/>-->
             <class name="tests.MAT_Users_And_Roles.Test002_Add_New_User"/>
@@ -16,7 +16,6 @@
             <class name="tests.MAT_Users_And_Roles.Test009_User_Rights_Verification"/>
             <class name="tests.MAT_Users_And_Roles.Test010_Delete_Created_Role"/>
             <class name="tests.MAT_Users_And_Roles.Test011_Delete_Created_User"/>
-
         </classes>
     </test>
 </suite>

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Title;
 import tests.SecurityConceptCreation.utils.AbstractClass;
 import utils.OpenView;
 import utils.TargetObject;
@@ -28,7 +29,7 @@ public class Test002_CreateITAssetSet extends AbstractClass {
 
     String ToDescription = "Some description";
 
-    @Features("Create new Security Concept")
+    @Title("Create new Security Concept")
     @BeforeClass
     public void setUp() throws Exception {
         OpenView.NavigateTO("IT-Grundschutz", "Inventory Analysis");
@@ -83,11 +84,11 @@ public class Test002_CreateITAssetSet extends AbstractClass {
         TargetObject.CreateNew("Employee", Employee2, ITAsset);
     }
 
-    @Test
-    public void test_010Logout() {
-        if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(enabled, 6000).isDisplayed()) {
-            $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
-        }
-    }
+//    @Test
+//    public void test_010Logout() {
+//        if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(enabled, 6000).isDisplayed()) {
+//            $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
+//        }
+//    }
 
 }

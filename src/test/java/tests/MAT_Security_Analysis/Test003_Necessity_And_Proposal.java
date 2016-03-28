@@ -16,8 +16,7 @@ public class Test003_Necessity_And_Proposal extends GSTAbstractClass{
     @Features("Security Analysis")
     @Test
     @Title("Change Necessity and Proposal")
-
-    public void changeNecessityAndProposal() throws InterruptedException {
+    public void testChangeNecessityAndProposal() throws InterruptedException {
 
         OpenView.NavigateTO(Grundschutz, SecurityAnalysis);
         OpenPluses.ExpandAll();

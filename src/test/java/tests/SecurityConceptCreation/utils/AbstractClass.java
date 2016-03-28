@@ -3,10 +3,12 @@ package tests.SecurityConceptCreation.utils;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import utils.Login;
 import utils.Property_Loader;
 
+import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -21,7 +23,7 @@ public class AbstractClass {
     public String high = "high";
     public String veryHigh = "very high";
 
-    @BeforeClass
+    @BeforeTest
     public static void setUpClass() throws Exception {
 
         String URL = Property_Loader.loadProperty("site.url") + "/targetObject.jsf";
@@ -34,8 +36,11 @@ public class AbstractClass {
         }
     }
 
-    @AfterClass
+    @AfterTest
     public static void tearDownClass() {
+        if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(enabled, 8000).isDisplayed()) {
+            $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
+        }
 
     }
 }

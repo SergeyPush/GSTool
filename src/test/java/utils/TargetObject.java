@@ -16,7 +16,7 @@ public class TargetObject {
         }
 
         //Click plus button
-        $(By.xpath(".//*[@id='addElementEnabled']")).waitUntil(enabled, 30000).click();
+        $(By.xpath(".//*[@id='addElementEnabled']")).waitUntil(enabled, 10000).click();
 
         //Select type of Asset
         $(By.xpath(".//*[@id='menuForm:yes']")).waitUntil(enabled, 6000);

@@ -15,8 +15,8 @@ public class Test002_QuickSearch_TO extends GSTAbstractClass{
 
     @Features("Security Analysis")
     @Test
-    @Title("Quick search created TO")
-    public void QuickSearchOfCreatedTO() {
+    @Title("Quick search of created TO")
+    public void testQuickSearchOfCreatedTO() {
 
         OpenView.NavigateTO(Grundschutz, SecurityAnalysis);
 

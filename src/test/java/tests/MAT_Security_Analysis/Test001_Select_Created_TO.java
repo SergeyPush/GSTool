@@ -17,7 +17,7 @@ public class Test001_Select_Created_TO extends GSTAbstractClass{
 
     @Features("Security Analysis")
     @Test
-    @Title("Test create new user")
+    @Title("Create new TO")
     public void testSelectCreatedTO() throws Exception {
 
         OpenView.NavigateTO(Grundschutz, InventoryAnalysis);

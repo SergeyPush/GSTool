@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Create New Security Concept">
-    <test name="Create Security Concept" preserve-order="true">
+<suite name="MAT Security Analysis">
+    <test name="Testing Security Analysis View" preserve-order="true">
         <classes>
             <class name="tests.MAT_Security_Analysis.Test001_Select_Created_TO"/>
             <class name="tests.MAT_Security_Analysis.Test002_QuickSearch_TO"/>
             <class name="tests.MAT_Security_Analysis.Test003_Necessity_And_Proposal"/>
             <class name="tests.MAT_Security_Analysis.Test004_Changing_PR"/>
             <class name="tests.MAT_Security_Analysis.Test005_Applying_Predefined_Filter"/>
-            <class name="tests.MAT_Security_Analysis.Test006_Creating_Custom_Filter"/>
-            <class name="tests.MAT_Security_Analysis.Test010_Delete_Created_TO"/>
+            <class name="tests.MAT_Security_Analysis.Test006_Creating_Temporary_Filter"/>
+            <class name="tests.MAT_Security_Analysis.Test007_Creating_Custom_Filter"/>
+            <class name="tests.MAT_Security_Analysis.Test008_Save_Custom_filter_As"/>
+            <class name="tests.MAT_Security_Analysis.Test009_Delete_Custom_Filter"/>
+            <class name="tests.MAT_Security_Analysis.Test010_Create_Advanced_Filter"/>
+            <class name="tests.MAT_Security_Analysis.Test011_Delete_Advanced_Filter"/>
+            <class name="tests.MAT_Security_Analysis.Test012_Delete_Created_TO"/>
         </classes>
     </test>
 </suite>
