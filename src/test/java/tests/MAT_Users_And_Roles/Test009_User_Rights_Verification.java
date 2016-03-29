@@ -1,6 +1,7 @@
 package tests.MAT_Users_And_Roles;
 
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.*;
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class Test009_User_Rights_Verification extends GSTAbstractClass {
 
@@ -63,9 +65,13 @@ public class Test009_User_Rights_Verification extends GSTAbstractClass {
         $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 10000).shouldHave(text("Speichern erfolgreich abgeschlossen")).shouldHave(text(TOname));
         $(By.partialLinkText(TOname)).waitUntil(present, 8000).shouldBe(visible, enabled);
 
-        //Logout from application
-        $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
     }
 
+    @AfterMethod
+    public void tearDownMethod() throws Exception {
+        //Logout from application
+        // $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
+        executeJavaScript("gstool.doWithSaveWhenChanged(function(){fireOnClick('toolBarForm:logoutLink')});return false;;A4J.AJAX.Submit('toolBarForm',event,{'similarityGroupingId':'toolBarForm:logout','parameters':{'toolBarForm:logout':'toolBarForm:logout'} } );return false;");
 
+    }
 }

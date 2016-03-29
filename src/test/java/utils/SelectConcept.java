@@ -10,10 +10,14 @@ import static com.codeborne.selenide.Selenide.$;
 public class SelectConcept {
 
     public static void selectDefaultConcept(){
-        $(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")).waitUntil(visible, 10000).click();
-//        $("#closeChangeSafetyConcept").waitUntil(enabled, 10000).click();
 
-        $("#changeSafetyConceptPanelHeader").waitUntil(disappear, 8000);
+//        $("#closeChangeSafetyConcept").waitUntil(enabled, 10000).click();
+        if ($("#changeSafetyConceptPanelHeader").isDisplayed()){
+            $(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")).waitUntil(enabled, 10000).click();
+            $("#changeSafetyConceptPanelHeader").waitUntil(disappear, 8000);
+        }
+
+
     }
 
     public static void selectConcept(String conceptName){
