@@ -3,12 +3,12 @@ package tests.SecurityConceptCreation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
-import tests.SecurityConceptCreation.utils.AbstractClass;
+import utils.GSTAbstractClass;
 import utils.OpenView;
 import utils.TargetObject;
 
 
-public class Test002_CreateITAssetSet extends AbstractClass {
+public class Test002_CreateITAssetSet extends GSTAbstractClass {
 
     public String ITAsset = "Lawyer Agency";
     public String Building1 = "Headquarters";

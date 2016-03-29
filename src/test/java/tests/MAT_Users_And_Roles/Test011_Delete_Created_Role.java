@@ -9,7 +9,7 @@ import utils.OpenView;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Test010_Delete_Created_Role extends GSTAbstractClass{
+public class Test011_Delete_Created_Role extends GSTAbstractClass{
 
     @Test
     @Title("Delete created role")

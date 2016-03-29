@@ -3,7 +3,7 @@ package tests.SecurityConceptCreation;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
-import tests.SecurityConceptCreation.utils.AbstractClass;
+import utils.GSTAbstractClass;
 import utils.OpenView;
 
 import java.sql.Timestamp;
@@ -13,7 +13,7 @@ import java.util.Date;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Test001_CreateNewSecurityConcept extends AbstractClass {
+public class Test001_CreateNewSecurityConcept extends GSTAbstractClass {
 
 
     @Test
@@ -54,6 +54,7 @@ public class Test001_CreateNewSecurityConcept extends AbstractClass {
     }
 
     @Test
+    @Title("Check option Ask for linking")
     public void test002EnableLinkTOs() throws Exception {
         //Open Settings
         $(By.xpath(".//*[@id='toolBarForm:imgConfiguration']")).waitUntil(enabled, 6000).click();

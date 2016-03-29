@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Complete test suite">
+<suite name="GST 2016">
     <test name="Create Security Concept">
         <classes>
             <class name="tests.SecurityConceptCreation.Test001_CreateNewSecurityConcept"/>
@@ -9,7 +9,7 @@
         </classes>
     </test>
 
-    <test name="Testing Security Analysis">
+    <test name="MAT Security Analysis">
         <classes>
             <class name="tests.MAT_Security_Analysis.Test001_Select_Created_TO"/>
             <class name="tests.MAT_Security_Analysis.Test002_QuickSearch_TO"/>
@@ -26,9 +26,8 @@
         </classes>
     </test>
 
-    <test name="Users and roles administration">
+    <test name="MAT Users and roles administration">
         <classes>
-            <!--<class name="tests.MAT_Users_And_Roles.Test001_LoginTest"/>-->
             <class name="tests.MAT_Users_And_Roles.Test002_Add_New_User"/>
             <class name="tests.MAT_Users_And_Roles.Test003_Cancel_Button_Verification"/>
             <class name="tests.MAT_Users_And_Roles.Test004_Convert_User_To_Employee"/>
@@ -38,8 +37,15 @@
             <class name="tests.MAT_Users_And_Roles.Test007_Cancel_Button_Verification"/>
             <class name="tests.MAT_Users_And_Roles.Test008_Changing_Role_Permissions"/>
             <class name="tests.MAT_Users_And_Roles.Test009_User_Rights_Verification"/>
-            <class name="tests.MAT_Users_And_Roles.Test010_Delete_Created_Role"/>
-            <class name="tests.MAT_Users_And_Roles.Test011_Delete_Created_User"/>
+            <class name="tests.MAT_Users_And_Roles.Test010_LoginTest"/>
+            <class name="tests.MAT_Users_And_Roles.Test011_Delete_Created_Role"/>
+            <class name="tests.MAT_Users_And_Roles.Test012_Delete_Created_User"/>
         </classes>
     </test>
+
+    <!--<test name="Delete created suite">-->
+        <!--<classes>-->
+            <!--<class name="tests.SecurityConceptCreation.Test003_Delete_Security_Concept"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>

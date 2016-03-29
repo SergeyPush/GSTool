@@ -63,17 +63,9 @@ public class Test009_User_Rights_Verification extends GSTAbstractClass {
         $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 10000).shouldHave(text("Speichern erfolgreich abgeschlossen")).shouldHave(text(TOname));
         $(By.partialLinkText(TOname)).waitUntil(present, 8000).shouldBe(visible, enabled);
 
-
-    }
-
-    @Test(dependsOnMethods = "testUserRightsVerification")
-    @Title("Add permission to the role, verify that permissions work")
-    public void testUserRightsVerificationRelogin() throws InterruptedException {
-
-        //Logout amd login
+        //Logout from application
         $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
-        Login.LoginProperly();
-        $("#closeChangeSafetyConcept").waitUntil(enabled, 10000).click();
     }
+
 
 }

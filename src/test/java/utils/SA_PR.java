@@ -1,12 +1,11 @@
 package utils;
 
 import org.openqa.selenium.By;
-import tests.SecurityConceptCreation.utils.AbstractClass;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class SA_PR extends AbstractClass {
+public class SA_PR extends GSTAbstractClass {
 
     public static void setPrDefinitions() {
 

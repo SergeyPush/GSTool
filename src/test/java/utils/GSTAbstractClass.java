@@ -26,7 +26,7 @@ public class GSTAbstractClass {
     public String veryHigh = "very high";
 
     @BeforeTest
-    public static void setUpClass() throws Exception {
+    public static void setUpTest() throws Exception {
 
 
         String URL = Property_Loader.loadProperty("site.url") + "/targetObject.jsf";
@@ -36,28 +36,13 @@ public class GSTAbstractClass {
 
         if ($(By.xpath(".//*[@id='loginForm']/table")).exists()) {
             Login.LoginProperly();
+            SelectConcept.selectDefaultConcept();
         }
-
-        if ($(By.xpath(".//*[@id='countSessisionLimitForm:logout']")).isDisplayed()) {
-            System.out.println("Licence limit for the count of concurrent sessions".toUpperCase());
-            close();
-            closeWebDriver();
-
-        }
-
-        $("#closeChangeSafetyConcept").waitUntil(enabled, 10000).click();
-
-        $("#changeSafetyConceptPanelHeader").waitUntil(disappear, 8000);
-
-        if ($("#changeSafetyConceptPanelHeader").isDisplayed()) {
-            $("closeChangeSafetyConcept").click();
-        }
-
 
     }
 
     @AfterTest
-    public static void tearDownClass() {
+    public static void tearDownTest() {
 
         if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).is(visible) || $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).is(enabled)) {
 //            $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(present, 60000).waitUntil(enabled, 6000).click();

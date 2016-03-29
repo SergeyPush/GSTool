@@ -2,7 +2,6 @@ package tests.MAT_Security_Analysis;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
 import utils.OpenView;
@@ -37,7 +36,6 @@ public class Test009_Delete_Custom_Filter extends GSTAbstractClass{
         $(By.xpath(".//*[@id='dataListID:filter_to_dataList_filter_management']/tbody/tr/td[1]/select")).waitUntil(visible, 10000).shouldHave(text("All"));
 
     }
-    @Features("Security Analysis")
     @Test
     @Title("Delete changed filter")
     public void testDeleteCustomFilter2() throws Exception {

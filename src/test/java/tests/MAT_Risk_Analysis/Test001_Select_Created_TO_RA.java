@@ -2,7 +2,6 @@ package tests.MAT_Risk_Analysis;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Title;
 import utils.GSTAbstractClass;
 import utils.OpenPluses;
@@ -64,7 +63,6 @@ public class Test001_Select_Created_TO_RA extends GSTAbstractClass {
     }
 
 
-    @Features("Risk Analysis")
     @Test
     @Title("Test create new TO and verify it in RA")
     public void testSelectCreatedTO2() throws Exception {

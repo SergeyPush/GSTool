@@ -5,14 +5,13 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
-import tests.SecurityConceptCreation.utils.AbstractClass;
-import utils.OpenPluses;
+import utils.GSTAbstractClass;
 import utils.OpenView;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class Test003_Delete_Security_Concept extends AbstractClass{
+public class Test003_Delete_Security_Concept extends GSTAbstractClass{
 
     @Test
     @Title("Delete created concept")
@@ -21,7 +20,6 @@ public class Test003_Delete_Security_Concept extends AbstractClass{
         OpenView.NavigateTO("Security Concepts");
 
         String conceptName = "TestConcept";
-        String version = "//a[contains(text(), 'Version 1')]";
 
         Thread.sleep(1000);
 
@@ -35,6 +33,7 @@ public class Test003_Delete_Security_Concept extends AbstractClass{
                 Thread.sleep(100);
             }
         }
+
         //Activate multiselect
         $(By.xpath(".//*[@id='safetyConceptListForm:j_id405']/img")).setSelected(true);
 
