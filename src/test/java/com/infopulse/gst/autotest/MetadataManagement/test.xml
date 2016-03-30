@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Default Suite">
+
+
+    <test name="Create Concept">
+        <classes>
+            <class name="com.infopulse.gst.autotest.MetadataManagement.CreateSC"/>
+        </classes>
+    </test>
+
+    <test name="Metadata Management">
+        <classes>
+            <class name="com.infopulse.gst.autotest.MetadataManagement.CreateModule">
+
+            </class>
+        </classes>
+    </test>
+</suite>

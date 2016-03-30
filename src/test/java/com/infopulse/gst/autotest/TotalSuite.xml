@@ -37,7 +37,7 @@
             <class name="com.infopulse.gst.autotest.MAT_Users_And_Roles.Test007_Cancel_Button_Verification"/>
             <class name="com.infopulse.gst.autotest.MAT_Users_And_Roles.Test008_Changing_Role_Permissions"/>
             <class name="com.infopulse.gst.autotest.MAT_Users_And_Roles.Test009_User_Rights_Verification"/>
-            <class name="com.infopulse.gst.autotest.MAT_Users_And_Roles.Test010_LoginTest"/>
+            <!--<class name="com.infopulse.gst.autotest.MAT_Users_And_Roles.Test010_LoginTest"/>-->
             <class name="com.infopulse.gst.autotest.MAT_Users_And_Roles.Test011_Delete_Created_Role"/>
             <class name="com.infopulse.gst.autotest.MAT_Users_And_Roles.Test012_Delete_Created_User"/>
         </classes>

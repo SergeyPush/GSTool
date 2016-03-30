@@ -4,6 +4,7 @@ package com.infopulse.gst.autotest.utils;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
 import static com.codeborne.selenide.Condition.*;
@@ -25,7 +26,7 @@ public class GSTAbstractClass {
     public String veryHigh = "very high";
 
     @BeforeTest
-    public static void setUpTest() throws Exception {
+    public static void setUpClass() throws Exception {
 
 
         String URL = Property_Loader.loadProperty("site.url") + "/targetObject.jsf";
@@ -40,13 +41,12 @@ public class GSTAbstractClass {
 
     }
 
-    @AfterTest
-    public static void tearDownTest() {
-
-        if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).is(visible) || $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).is(enabled)) {
-//            $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(present, 60000).waitUntil(enabled, 6000).click();
-            executeJavaScript("gstool.doWithSaveWhenChanged(function(){fireOnClick('toolBarForm:logoutLink')});return false;;A4J.AJAX.Submit('toolBarForm',event,{'similarityGroupingId':'toolBarForm:logout','parameters':{'toolBarForm:logout':'toolBarForm:logout'} } );return false;");
-        }
-
-    }
+    // @AfterTest
+    // public static void tearDownTest() {
+    //
+    //     if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).is(visible) || $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).is(enabled)) {
+    //         executeJavaScript("gstool.doWithSaveWhenChanged(function(){fireOnClick('toolBarForm:logoutLink')});return false;;A4J.AJAX.Submit('toolBarForm',event,{'similarityGroupingId':'toolBarForm:logout','parameters':{'toolBarForm:logout':'toolBarForm:logout'} } );return false;");
+    //     }
+    //
+    // }
 }

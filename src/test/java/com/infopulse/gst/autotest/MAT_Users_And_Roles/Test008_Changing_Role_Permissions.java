@@ -14,7 +14,7 @@ public class Test008_Changing_Role_Permissions extends GSTAbstractClass{
     @Test
     @Title("Changing permissions for the role")
 
-    public void testChangingPermissionsForTheRole() {
+    public void testChangingPermissionsForTheRole() throws InterruptedException {
 
         OpenView.openExtras(RoleAdministration);
 
@@ -30,6 +30,7 @@ public class Test008_Changing_Role_Permissions extends GSTAbstractClass{
         $(By.xpath(".//*[@id='roleAdministrationForm:tabModules_lbl']")).waitUntil(enabled, 8000).click();
 
         //Enable all permissions
+        Thread.sleep(1000);
         $(By.xpath(".//*[@id='1']/table/tbody/tr/td[6]/div/input")).waitUntil(enabled, 8000).setSelected(true);
         $(By.xpath(".//*[@id='1']/table/tbody/tr/td[7]/div/input")).waitUntil(enabled, 8000).setSelected(true);
         $(By.xpath(".//*[@id='1']/table/tbody/tr/td[8]/div/input")).waitUntil(enabled, 8000).setSelected(true);

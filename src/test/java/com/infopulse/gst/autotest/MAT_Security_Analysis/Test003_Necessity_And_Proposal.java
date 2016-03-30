@@ -30,7 +30,7 @@ public class Test003_Necessity_And_Proposal extends GSTAbstractClass{
         $(By.xpath(".//*[@id='securityAnalysisForm:necessity']")).selectOption("yes");
 
         //Select Decider
-        $(By.xpath(".//*[@id='securityAnalysisForm:decisionUser']")).selectOption(1);
+        $(By.xpath(".//*[@id='securityAnalysisForm:decisionUser']")).waitUntil(enabled, 6000).selectOption(1);
 
         //Enter date of decision
         $(By.xpath(".//*[@id='securityAnalysisForm:decisionDateInputDate']")).val("16.03.2016");
