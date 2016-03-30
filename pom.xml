@@ -110,7 +110,7 @@
                         <testFailureIgnore>true</testFailureIgnore>
 
                         <suiteXmlFiles>
-                            <suiteXmlFile>src/test/java/${suite}</suiteXmlFile>
+                            <suiteXmlFile>src/test/java/com/infopulse/gst/autotest/${suite}</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
