@@ -3,6 +3,6 @@
 --select * from ACCESS_USER_ROLE;
 
 
---update ACCESS_USER set "ACTIVE"=1 where ID = 1
+--update ACCESS_USER set "ACTIVE"=1 where ID = 1;
 
-select * from FILTER
+select ID, NAME from SAFETY_CONCEPT;

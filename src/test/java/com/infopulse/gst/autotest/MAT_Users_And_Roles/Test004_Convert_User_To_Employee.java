@@ -39,8 +39,9 @@ public class Test004_Convert_User_To_Employee extends GSTAbstractClass {
         OpenView.NavigateTO(Grundschutz, InventoryAnalysis);
         OpenPluses.ExpandAll();
 
-        $(By.partialLinkText(username)).shouldBe(present, enabled);
         Thread.sleep(1000);
+        $(By.partialLinkText(username)).shouldBe(present, enabled);
+
 
     }
 }

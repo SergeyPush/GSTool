@@ -1,5 +1,7 @@
 package com.infopulse.gst.autotest.MAT_Users_And_Roles;
 
+import com.infopulse.gst.autotest.utils.Login;
+import com.infopulse.gst.autotest.utils.SelectConcept;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
@@ -14,6 +16,8 @@ public class Test011_Delete_Created_Role extends GSTAbstractClass{
     @Test
     @Title("Delete created role")
     public void testDeleteCreatedRole() throws Exception {
+        Login.LoginProperly();
+        SelectConcept.selectDefaultConcept();
 
         OpenView.openExtras(RoleAdministration);
 

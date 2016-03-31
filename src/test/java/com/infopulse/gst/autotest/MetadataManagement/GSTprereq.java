@@ -19,7 +19,7 @@ public class GSTprereq {
 
         Configuration.browser = "chrome";
         // Configuration.holdBrowserOpen = true;
-        open("http://10.211.55.3:9090/gst2016/gstool");
+        open("http://localhost:9090/gst2016/gstool");
 
         $("#j_username").val("admin");
         $("#j_password").val("gst12345");
