@@ -5,4 +5,8 @@
 
 --update ACCESS_USER set "ACTIVE"=1 where ID = 1;
 
-select ID, NAME from SAFETY_CONCEPT;
+select * from ROLE;
+
+select * from nls_session_parameters;
+
+select * from TARGET_OBJECT;
