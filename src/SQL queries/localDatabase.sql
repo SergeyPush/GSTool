@@ -9,4 +9,5 @@ select * from ROLE;
 
 select * from nls_session_parameters;
 
-select * from TARGET_OBJECT;
+select NAME from TARGET_OBJECT;
+
