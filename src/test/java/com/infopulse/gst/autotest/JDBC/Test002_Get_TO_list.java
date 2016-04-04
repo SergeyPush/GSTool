@@ -26,8 +26,8 @@ public class Test002_Get_TO_list extends AbstractJDBC {
 
         System.out.println(TOs);
 
-        assertThat(TOs, hasSize(14));
-        assertThat(TOs, contains("tempBuilding", "Admin", "Boss", "Database", "Headquarters", "Lawyer Agency", "Local network", "Main room", "Make money", "Microsoft Office", "PC", "Remote Office", "testBuilding", "testuser_23:52:27"));
+        assertThat(TOs, hasSize(13));
+        assertThat(TOs, contains("Admin", "Boss", "Database", "Headquarters", "Lawyer Agency", "Local network", "Main room", "Make money", "Microsoft Office", "PC", "Remote Office", "tempBuilding",  "testuser_10:50:24"));
         assertThat(TOs, hasItems("tempBuilding", "Admin", "Boss"));
         assertThat(TOs, hasItem("Boss"));
         assertThat(TOs, is(not(empty())));

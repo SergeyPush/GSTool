@@ -9,5 +9,7 @@ select * from ROLE;
 
 select * from nls_session_parameters;
 
-select NAME from TARGET_OBJECT;
+select * from TARGET_OBJECT;
+
+select ACCESS_ROLE.ID from ACCESS_ROLE;
 

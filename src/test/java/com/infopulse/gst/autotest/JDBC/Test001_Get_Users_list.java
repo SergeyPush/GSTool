@@ -19,7 +19,7 @@ public class Test001_Get_Users_list extends AbstractJDBC {
         resultSet = statement.executeQuery("select ID, ACCOUNTNAME, ACTIVE from ACCESS_USER");
 
         List<String> users = new ArrayList<String>();
-        List<String> expectedUsers = Arrays.asList("testuser_23:52:27", "admin", "automan");
+        List<String> expectedUsers = Arrays.asList("tuser", "admin", "automan");
 
 
         while (resultSet.next()) {
@@ -36,7 +36,7 @@ public class Test001_Get_Users_list extends AbstractJDBC {
 
         assertThat("admin", "automan", isIn(users));
         assertThat(users, hasSize(3));
-        assertThat(users, hasItems("admin", "automan", "testuser_23:52:27"));
+        assertThat(users, hasItems("admin", "automan", "tuser"));
         assertThat("admin", isIn(users));
         assertThat(users, containsInAnyOrder(expectedUsers.toArray()));
     }
