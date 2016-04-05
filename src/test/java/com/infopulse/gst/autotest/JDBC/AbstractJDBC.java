@@ -17,6 +17,7 @@ public class AbstractJDBC {
 
     @BeforeClass
     public void setUpClass() throws Exception {
+
         // DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
         connection = DriverManager.getConnection("jdbc:oracle:thin:gst/tsg6102@localhost:1521:XE");
         statement = connection.createStatement();

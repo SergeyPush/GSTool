@@ -2,7 +2,6 @@ package com.infopulse.gst.autotest.JDBC;
 
 
 import org.testng.annotations.Test;
-import org.testng.collections.Lists;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,9 +23,9 @@ public class Test001_Get_Users_list extends AbstractJDBC {
 
         while (resultSet.next()) {
 
-            Integer id = resultSet.getInt(1); // get first column returned
-            String name = resultSet.getString(2);
-            Integer active = resultSet.getInt(3);
+            Integer id = resultSet.getInt("ID");
+            String name = resultSet.getString("ACCOUNTNAME");
+            Integer active = resultSet.getInt("ACTIVE");
 
             users.add(name);
 
