@@ -5,9 +5,11 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasEntry;
+import static org.hamcrest.Matchers.hasValue;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class Test_003_Users_and_Roles extends AbstractJDBC{
+public class Test003_Users_and_Roles extends AbstractJDBC{
 
     @Test
     public void testConnectUsersAndRoles() throws Exception {
@@ -26,7 +28,8 @@ public class Test_003_Users_and_Roles extends AbstractJDBC{
 
         System.out.println(map);
         assertThat(map.get("automan"), equalTo("Adminrolle"));
-
+        assertThat(map, hasEntry("automan", "Adminrolle"));
+        assertThat(map, hasValue("trole"));
 
     }
 }
