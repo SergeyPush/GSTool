@@ -1,8 +1,10 @@
 package com.infopulse.gst.autotest.utils;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class OpenPluses extends GSTAbstractClass {
@@ -16,8 +18,8 @@ public class OpenPluses extends GSTAbstractClass {
 
             if (elm.getAttribute("src").contains("Closed")) {
                 Thread.sleep(200);
-                elm.click();
-                Thread.sleep(100);
+                elm.waitUntil(enabled, 4000).click();
+                Thread.sleep(200);
             }
         }
     }

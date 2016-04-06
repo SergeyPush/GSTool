@@ -20,7 +20,7 @@ public class Test001_Select_Created_TO extends GSTAbstractClass{
 
         OpenView.NavigateTO(Grundschutz, InventoryAnalysis);
 
-        String TOname = "testBuilding";   //TODO Change name to 'building'
+        String TOname = "testBuilding";
         TargetObject.CreateNew("Building", TOname, "Lawyer Agency");
 
         $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 10000).shouldHave(text("Successfully saved")).shouldHave(text(TOname));

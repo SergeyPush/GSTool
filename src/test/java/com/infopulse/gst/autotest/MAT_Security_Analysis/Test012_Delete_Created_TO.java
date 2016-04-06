@@ -31,6 +31,7 @@ public class Test012_Delete_Created_TO extends GSTAbstractClass{
         $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 15000).shouldBe(visible).shouldHave(text("Item successfully deleted")).shouldHave(text(TOname));
         $(By.partialLinkText(TOname)).shouldNotBe(visible, enabled);
 
+        //TODO Create another building for risk analysis MAT with name 'building'
 
     }
 }
