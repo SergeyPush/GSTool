@@ -31,6 +31,7 @@ public class GSTAbstractClass {
 
         String URL = Property_Loader.loadProperty("site.url") + "/targetObject.jsf";
         System.out.println(URL);
+        Configuration.pageLoadStrategy="eager";
         Configuration.browser = Property_Loader.loadProperty("browser.name");
         open(URL);
 
