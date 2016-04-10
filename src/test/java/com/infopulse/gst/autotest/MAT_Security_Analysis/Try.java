@@ -24,7 +24,6 @@ public class Try extends GSTAbstractClass{
         System.out.println(grayBubble);
         $("#modules_datalistScrollableContainer .icon>img:nth-of-type(2)").shouldHave(attribute("title", "Implementation = \"Open\" completed seal level = none"));
         $("#modules_datalistScrollableContainer .icon>img:nth-of-type(2)").shouldHave(attribute("src", "http://localhost:9090/gst2016/images/evaluation/state/raw.png"));
-
         // $("#modules_datalistScrollableContainer .icon>img:nth-of-type(2)").shouldHave(attribute("title", "necessary from = \"Not necessary\" completed seal level = none"));
     }
 }
