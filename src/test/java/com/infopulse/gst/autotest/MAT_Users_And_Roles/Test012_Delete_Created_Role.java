@@ -11,7 +11,7 @@ import com.infopulse.gst.autotest.utils.OpenView;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Test011_Delete_Created_Role extends GSTAbstractClass{
+public class Test012_Delete_Created_Role extends GSTAbstractClass{
 
     @Test
     @Title("Delete created role")

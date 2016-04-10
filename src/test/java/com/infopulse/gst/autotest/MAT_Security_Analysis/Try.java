@@ -16,6 +16,7 @@ public class Try extends GSTAbstractClass{
         OpenView.NavigateTO(Grundschutz, SecurityCheck);
         $("#moduleEnabled").waitUntil(enabled, 8000);
 
+
         OpenPluses.ExpandAll();
 
         $(By.partialLinkText("Main room")).click();

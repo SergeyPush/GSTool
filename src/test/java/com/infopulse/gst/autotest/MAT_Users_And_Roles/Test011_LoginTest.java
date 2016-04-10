@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.refresh;
 
-public class Test010_LoginTest extends GSTAbstractClass{
+public class Test011_LoginTest extends GSTAbstractClass{
 
     private String Username = RandomName.readFromFile().get(0);
 

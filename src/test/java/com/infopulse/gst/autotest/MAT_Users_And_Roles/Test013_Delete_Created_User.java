@@ -11,7 +11,7 @@ import com.infopulse.gst.autotest.utils.RandomName;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Test012_Delete_Created_User extends GSTAbstractClass{
+public class Test013_Delete_Created_User extends GSTAbstractClass{
 
     @Title("Delete existing user")
     @Test()

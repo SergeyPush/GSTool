@@ -1,12 +1,14 @@
 package com.infopulse.gst.autotest.MAT_Users_And_Roles;
 
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
 import com.infopulse.gst.autotest.utils.*;
 
 import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -15,17 +17,18 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class Test009_User_Rights_Verification extends GSTAbstractClass {
 
+    //Select created user
+    private String username = RandomName.readFromFile().get(0);
+    private String password = RandomName.readFromFile().get(1);
+    private String rolename = "testrole";
+    private String TOname = "tempBuilding";
+
 
     @Test
     @Title("Add permission to the role, verify that permissions work")
-    public void testUserRightsVerification() throws InterruptedException {
+    public void test001UserRightsVerification() throws InterruptedException {
 
         OpenView.openExtras(UserAdministration);
-
-        //Select created user
-        String username = RandomName.readFromFile().get(0);
-        String password = RandomName.readFromFile().get(1);
-        String rolename = "testrole";
 
         //Click Roles button
         $("#rolesEnabled").waitUntil(enabled, 8000).click();
@@ -42,36 +45,71 @@ public class Test009_User_Rights_Verification extends GSTAbstractClass {
         $(By.xpath(".//*[@id='role_panel_mpBForm:save_link']")).waitUntil(enabled, 8000).click();
         $("#role_panelHeader").waitUntil(disappear, 10000);
 
-
         //Asserts
-        $$(By.xpath(".//*[@id='RoleDataList:j_id686']//*[@class='toggle_item_label']")).shouldHave(size(1)).shouldHave(texts(rolename));
-
+        $$(By.xpath(".//*[@id='RoleDataList:j_id686']//*[@class='toggle_item_label']")).shouldHave(sizeGreaterThanOrEqual(1)).shouldHave(texts(rolename));
 
         //Logout
         $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(enabled, 6000).click();
 
+    }
+
+
+    @Test(dependsOnMethods = "test001UserRightsVerification")
+    @Title("Change language verify access to Base oprions Configuration options permission")
+    public void test002ChangeLanguage() throws Exception {
 
         //Login with new credentials and select concept
         Login.LoginAs(username, password);
         $(By.xpath(".//*[@id='changeSafetyConceptForm:safetyConceptGroupMenu']")).selectOption(1);
         $(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")).waitUntil(enabled, 6000).click();
 
+        //Open Base settings in German Grundfunktionen and select English Language
+        OpenView.openExtras("Configuration");
+        $(By.xpath(".//*[@id='1']/table/tbody/tr/td[4]/a")).click();
+        $(By.xpath(".//*[@id='baseOptionsForm:j_id608:0:j_id610_body']/table/tbody/tr/td[2]/select")).selectOption("English");
+        $("#saveEnabled").waitUntil(enabled, 10000).click();
+        $(By.xpath(".//*[@id='footerForm:message']/dt")).waitUntil(visible, 8000);
+        Thread.sleep(1000);
+    }
 
+    @Test(dependsOnMethods = "test002ChangeLanguage")
+    @Title("Create new building to verify R,E,C permissions")
+    public void test003CreateNewBuilding() throws Exception {
+
+        OpenView.NavigateTO(Grundschutz, InventoryAnalysis);
         //Create TO
-        String TOname = "tempBuilding";
-        TargetObject.CreateNew("Gebäude", TOname, null);
+
+        TargetObject.CreateNew("Building", TOname, null);
 
         //Assert
-        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 10000).shouldHave(text("Speichern erfolgreich abgeschlossen")).shouldHave(text(TOname));
+        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 10000).shouldHave(text("Successfully saved")).shouldHave(text(TOname));
         $(By.partialLinkText(TOname)).waitUntil(present, 8000).shouldBe(visible, enabled);
+    }
+
+
+    @Test(dependsOnMethods = "test003CreateNewBuilding")
+    @Title("Delete clreated TO, check L permission")
+    public void test004DeleteCreatedBuilding() throws Exception {
+        // Select created TO
+        Thread.sleep(5000);
+        $(By.partialLinkText(TOname)).click();
+
+        // Click Delete button and confirm deletion
+        $("#deleteElementEnabled").waitUntil(enabled, 6000).click();
+        $("#genericConfirmPanelYes").waitUntil(enabled, 8000).click();
+
+        $("#genericConfirmPanelYes").waitUntil(disappear, 8000);
+
+        // Assertion
+        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(visible, 8000)
+                .shouldHave(text("Item successfully deleted")).shouldHave(text(TOname));
 
     }
 
-    @AfterMethod
-    public void tearDownMethod() throws Exception {
+    @AfterClass
+    public void tearDownClass() throws Exception {
         //Logout from application
-        // $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).click();
-        executeJavaScript("gstool.doWithSaveWhenChanged(function(){fireOnClick('toolBarForm:logoutLink')});return false;;A4J.AJAX.Submit('toolBarForm',event,{'similarityGroupingId':'toolBarForm:logout','parameters':{'toolBarForm:logout':'toolBarForm:logout'} } );return false;");
-
+        // executeJavaScript("gstool.doWithSaveWhenChanged(function(){fireOnClick('toolBarForm:logoutLink')});return false;;A4J.AJAX.Submit('toolBarForm',event,{'similarityGroupingId':'toolBarForm:logout','parameters':{'toolBarForm:logout':'toolBarForm:logout'} } );return false;");
+        $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(enabled,10000).click();
     }
 }

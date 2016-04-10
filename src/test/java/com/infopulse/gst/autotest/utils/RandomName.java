@@ -59,7 +59,7 @@ public class RandomName {
 
         File file = new File("temp.txt");
         try {
-            BufferedWriter br = new BufferedWriter(new FileWriter(file.getAbsolutePath()));
+            BufferedWriter br = new BufferedWriter(new FileWriter(file));
             br.write(name);
             br.newLine();
             br.write(password);

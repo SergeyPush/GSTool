@@ -26,12 +26,12 @@ public class GSTAbstractClass {
     protected String veryHigh = "very high";
 
     @BeforeTest
-    public static void setUpClass() throws Exception {
+    public static void setUpTest() throws Exception {
 
 
         String URL = Property_Loader.loadProperty("site.url") + "/targetObject.jsf";
         System.out.println(URL);
-        Configuration.pageLoadStrategy="eager";
+        Configuration.pageLoadStrategy = "eager";
         Configuration.browser = Property_Loader.loadProperty("browser.name");
         open(URL);
 
@@ -39,15 +39,27 @@ public class GSTAbstractClass {
             Login.LoginProperly();
             SelectConcept.selectDefaultConcept();
         }
-
     }
 
-     @AfterTest
-     public static void tearDownTest() {
+    @BeforeClass
+    public void setUpClass() {
+        if ($(".header-table>tbody>tr>td>img").isDisplayed()) {
 
-         if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).is(visible) || $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).is(enabled)) {
-             executeJavaScript("gstool.doWithSaveWhenChanged(function(){fireOnClick('toolBarForm:logoutLink')});return false;;A4J.AJAX.Submit('toolBarForm',event,{'similarityGroupingId':'toolBarForm:logout','parameters':{'toolBarForm:logout':'toolBarForm:logout'} } );return false;");
-         }
+        } else if ($("#loginForm").isDisplayed()) {
+            Login.LoginProperly();
+            SelectConcept.selectDefaultConcept();
 
-     }
+        } else {
+            refresh();
+        }
+    }
+
+    @AfterTest
+    public static void tearDownTest() {
+
+        if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).isEnabled()) {
+            executeJavaScript("gstool.doWithSaveWhenChanged(function(){fireOnClick('toolBarForm:logoutLink')});return false;;A4J.AJAX.Submit('toolBarForm',event,{'similarityGroupingId':'toolBarForm:logout','parameters':{'toolBarForm:logout':'toolBarForm:logout'} } );return false;");
+        }
+
+    }
 }

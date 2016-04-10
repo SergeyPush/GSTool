@@ -8,6 +8,7 @@ import com.infopulse.gst.autotest.utils.OpenView;
 import com.infopulse.gst.autotest.utils.RandomName;
 
 import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.$;
@@ -33,7 +34,7 @@ public class Test005_Linking_Roles extends GSTAbstractClass{
         $(By.xpath(".//*[@id='role_panel_mpBForm:save_link']")).waitUntil(enabled, 7000).click();
 
         //Asserts
-        $$(By.xpath(".//*[@id='RoleDataList:j_id686']//*[@class='toggle_item_label']")).shouldHave(size(1)).shouldHave(texts("Adminrolle"));
+        $$(By.xpath(".//*[@id='RoleDataList:j_id686']//*[@class='toggle_item_label']")).shouldHave(sizeGreaterThanOrEqual(1)).shouldHave(texts("Adminrolle"));
 
 
 
