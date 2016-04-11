@@ -41,23 +41,23 @@ public class GSTAbstractClass {
         }
     }
 
-    @BeforeClass
-    public void setUpClass() {
-        if ($(".header-table>tbody>tr>td>img").isDisplayed()) {
-
-        } else if ($("#loginForm").isDisplayed()) {
-            Login.LoginProperly();
-            SelectConcept.selectDefaultConcept();
-
-        } else {
-            refresh();
-        }
-    }
+    // @BeforeClass
+    // public void setUpClass() {
+    //     if ($(".header-table>tbody>tr>td>img").isDisplayed()) {
+    //
+    //     } else if ($("#loginForm").isDisplayed()) {
+    //         Login.LoginProperly();
+    //         SelectConcept.selectDefaultConcept();
+    //
+    //     } else {
+    //         refresh();
+    //     }
+    // }
 
     @AfterTest
     public static void tearDownTest() {
 
-        if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).isEnabled()) {
+        if ($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).isDisplayed()) {
             executeJavaScript("gstool.doWithSaveWhenChanged(function(){fireOnClick('toolBarForm:logoutLink')});return false;;A4J.AJAX.Submit('toolBarForm',event,{'similarityGroupingId':'toolBarForm:logout','parameters':{'toolBarForm:logout':'toolBarForm:logout'} } );return false;");
         }
 

@@ -11,15 +11,12 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.codeborne.selenide.Selenide.*;
 
 public class Test009_User_Rights_Verification extends GSTAbstractClass {
 
     //Select created user
-    private String username = RandomName.readFromFile().get(0);
-    private String password = RandomName.readFromFile().get(1);
+
     private String rolename = "testrole";
     private String TOname = "tempBuilding";
 
@@ -54,25 +51,28 @@ public class Test009_User_Rights_Verification extends GSTAbstractClass {
     }
 
 
-    @Test(dependsOnMethods = "test001UserRightsVerification")
+    @Test
     @Title("Change language verify access to Base oprions Configuration options permission")
     public void test002ChangeLanguage() throws Exception {
 
+        String username = RandomName.readFromFile().get(0);
+        String password = RandomName.readFromFile().get(1);
+
         //Login with new credentials and select concept
         Login.LoginAs(username, password);
-        $(By.xpath(".//*[@id='changeSafetyConceptForm:safetyConceptGroupMenu']")).selectOption(1);
+        $(By.xpath(".//*[@id='changeSafetyConceptForm:safetyConceptGroupMenu']")).waitUntil(present, 8000).selectOption(1);
         $(By.xpath(".//*[@id='changeSafetyConceptForm:yes']")).waitUntil(enabled, 6000).click();
 
         //Open Base settings in German Grundfunktionen and select English Language
-        OpenView.openExtras("Configuration");
+        OpenView.openExtras("Einstellungen");
         $(By.xpath(".//*[@id='1']/table/tbody/tr/td[4]/a")).click();
-        $(By.xpath(".//*[@id='baseOptionsForm:j_id608:0:j_id610_body']/table/tbody/tr/td[2]/select")).selectOption("English");
+        $(By.xpath(".//*[@id='baseOptionsForm:j_id608:0:j_id610_body']/table/tbody/tr/td[2]/select")).selectOption("Englisch");
         $("#saveEnabled").waitUntil(enabled, 10000).click();
         $(By.xpath(".//*[@id='footerForm:message']/dt")).waitUntil(visible, 8000);
         Thread.sleep(1000);
     }
 
-    @Test(dependsOnMethods = "test002ChangeLanguage")
+    @Test
     @Title("Create new building to verify R,E,C permissions")
     public void test003CreateNewBuilding() throws Exception {
 
@@ -87,11 +87,11 @@ public class Test009_User_Rights_Verification extends GSTAbstractClass {
     }
 
 
-    @Test(dependsOnMethods = "test003CreateNewBuilding")
-    @Title("Delete clreated TO, check L permission")
+    @Test
+    @Title("Delete created TO, check L permission")
     public void test004DeleteCreatedBuilding() throws Exception {
         // Select created TO
-        Thread.sleep(5000);
+
         $(By.partialLinkText(TOname)).click();
 
         // Click Delete button and confirm deletion
@@ -109,7 +109,9 @@ public class Test009_User_Rights_Verification extends GSTAbstractClass {
     @AfterClass
     public void tearDownClass() throws Exception {
         //Logout from application
-        // executeJavaScript("gstool.doWithSaveWhenChanged(function(){fireOnClick('toolBarForm:logoutLink')});return false;;A4J.AJAX.Submit('toolBarForm',event,{'similarityGroupingId':'toolBarForm:logout','parameters':{'toolBarForm:logout':'toolBarForm:logout'} } );return false;");
-        $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(enabled,10000).click();
+        if($(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).exists()){
+            $(By.xpath(".//*[@id='toolBarForm:imgUserLogout']")).waitUntil(enabled,10000).click();
+        }
+
     }
 }

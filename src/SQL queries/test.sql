@@ -1,1 +1,2 @@
-select * from ACCESS_ROLE
+select * from TARGET_OBJECT
+WHERE ROWNUM <= 5;
