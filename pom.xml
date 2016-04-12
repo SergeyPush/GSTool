@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <suite>TotalSuite.xml</suite>
+        <suite>TotalSuite</suite>
     </properties>
 
     <profiles>
@@ -110,7 +110,7 @@
                         <testFailureIgnore>true</testFailureIgnore>
 
                         <suiteXmlFiles>
-                            <suiteXmlFile>src/test/java/com/infopulse/gst/autotest/${suite}</suiteXmlFile>
+                            <suiteXmlFile>src/test/java/com/infopulse/gst/autotest/${suite}.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>

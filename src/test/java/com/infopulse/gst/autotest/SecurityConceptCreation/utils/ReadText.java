@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Condition.*;
 public class ReadText {
 
 
-    public static String readFromFile() {
+    /*public static String readFromFile() {
 
         String text = "";
 
@@ -36,7 +36,7 @@ public class ReadText {
         in.close();
 
         return text;
-    }
+    }*/
 
     public static void SendUmlauts(String locator) {
 

@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.refresh;
 
 public class Test011_LoginTest extends GSTAbstractClass{
 
-    private String Username = RandomName.readFromFile().get(0);
+    String Username = RandomName.readFromFile().get(0);
 
     @Test
     @Title("Try to login without password")

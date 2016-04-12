@@ -12,7 +12,7 @@ public class Try {
     @Test
     public void testReadFile() throws Exception {
 
-        System.out.println("Name: "+username + "Password: " +  password);
+        RandomName.deleteFile();
 
 
     }

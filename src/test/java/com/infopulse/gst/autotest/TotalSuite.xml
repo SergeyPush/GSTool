@@ -2,12 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="GST 2016">
-    <!--<test name="Create Security Concept">-->
-        <!--<classes>-->
-            <!--<class name="com.infopulse.gst.autotest.SecurityConceptCreation.Test001_CreateNewSecurityConcept"/>-->
-            <!--<class name="com.infopulse.gst.autotest.SecurityConceptCreation.Test002_CreateITAssetSet"/>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="Create Security Concept">
+        <classes>
+            <class name="com.infopulse.gst.autotest.SecurityConceptCreation.Test001_CreateNewSecurityConcept"/>
+            <class name="com.infopulse.gst.autotest.SecurityConceptCreation.Test002_CreateITAssetSet"/>
+        </classes>
+    </test>
 
     <test name="MAT Security Analysis">
         <classes>

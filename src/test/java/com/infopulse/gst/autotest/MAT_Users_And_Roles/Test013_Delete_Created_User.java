@@ -2,6 +2,7 @@ package com.infopulse.gst.autotest.MAT_Users_And_Roles;
 
 
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Title;
 import com.infopulse.gst.autotest.utils.GSTAbstractClass;
@@ -14,7 +15,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class Test013_Delete_Created_User extends GSTAbstractClass{
 
     @Title("Delete existing user")
-    @Test()
+    @Test
     public void testDeleteCreatedUser() throws Exception {
 
         OpenView.openExtras(UserAdministration);
@@ -32,5 +33,11 @@ public class Test013_Delete_Created_User extends GSTAbstractClass{
 
         //Asserts
         $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(present, 8000).shouldHave(text("Item successfully deleted")).shouldHave(text(username));
+    }
+
+    @AfterMethod
+    public void tearDown() throws Exception {
+
+        RandomName.deleteFile();
     }
 }
