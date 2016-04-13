@@ -32,7 +32,7 @@ public class Test013_Delete_Created_User extends GSTAbstractClass{
         $("#confirmationDialog-confirm").click();
 
         //Asserts
-        $(By.xpath(".//*[@id='footerForm:message']/dt/span")).waitUntil(present, 8000).shouldHave(text("Item successfully deleted")).shouldHave(text(username));
+        $(By.xpath("./[@id='footerForm:message']/dt/span")).waitUntil(present, 8000).shouldHave(text("Item successfully deleted")).shouldHave(text(username));
     }
 
     @AfterMethod

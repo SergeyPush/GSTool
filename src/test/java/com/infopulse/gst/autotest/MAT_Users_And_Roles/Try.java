@@ -1,21 +1,19 @@
 package com.infopulse.gst.autotest.MAT_Users_And_Roles;
 
 
-import com.codeborne.selenide.Condition;
 import com.infopulse.gst.autotest.utils.GSTAbstractClass;
 import com.infopulse.gst.autotest.utils.OpenView;
-import com.infopulse.gst.autotest.utils.RandomName;
 import org.openqa.selenium.By;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.refresh;
 
-public class Try extends GSTAbstractClass{
+public class Try extends GSTAbstractClass {
 
     @DataProvider(name = "afilters")
-    Object[][] afilters(){
+    Object[][] afilters() {
         return new Object[][]{
                 {"Audit question-description", "exactly", "descrition"},
                 {"Audit question-description", "except", "descrition"},
@@ -23,25 +21,24 @@ public class Try extends GSTAbstractClass{
                 {"Audit question-description", "excluding", "descrition"},
                 {"Audit question-description", "empty", null},
                 {"Audit question-description", "not empty", null},
-                {"Audit question-answer","exactly","Yes"},
-                {"Audit question-answer","exactly","No"},
-                {"Audit question-answer","exactly","Partially"}
+                {"Audit question-answer", "exactly", "Yes"},
+                {"Audit question-answer", "exactly", "No"},
+                {"Audit question-answer", "exactly", "Partially"},
+                {"Safeguard-required from", "exactly", "A-Entry level"},
+                {"Safeguard-last audit by", "exactly", "Admin"}
         };
     }
 
 
-    @Test
-    public void openFilters(){
 
+    @Test(dataProvider = "afilters")
+    public void testTryFilters(String filter, String operation, String value) throws Exception {
         OpenView.NavigateTO(Grundschutz, SecurityCheck);
+        //open filters
         $(By.xpath(".//*[@id='extendedDataListForm:j_id305']/img")).waitUntil(enabled, 8000).click();
         $(By.xpath(".//*[@id='securityCheckFilterPanel_dataListFilterForm:j_id677_lbl']")).waitUntil(enabled, 8000).click();
-        $(By.xpath(".//*[@id='securityCheckFilterPanel_dataListFilterForm:name']")).waitUntil(enabled, 6000).val("Test filter");
+        $(By.xpath(".//*[@id='securityCheckFilterPanel_dataListFilterForm:name']")).waitUntil(enabled, 6000).val("Test filter2");
         $(By.xpath(".//*[@id='securityCheckFilterPanel_dataListFilterForm:newCondition']")).waitUntil(enabled, 8000).click();
-    }
-
-    @Test(dataProvider = "afilters", dependsOnMethods = "openFilters")
-    public void testTryFilters(String filter, String operation, String value) throws Exception {
 
         //.//*[@id='securityCheckFilterPanel_conditionPanel_Form']/table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']
         //table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']
@@ -53,213 +50,32 @@ public class Try extends GSTAbstractClass{
         Thread.sleep(500);
         $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionOperator']")).waitUntil(enabled, 6000).selectOption(operation);
         Thread.sleep(500);
-        if (value!=null){
+        if (value != null) {
             $(By.xpath(selector)).sendKeys(value);
             Thread.sleep(500);
         }
 
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Count");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("count");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Employee-e-mail");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("mail");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Employee-first name");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("name");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Employee-mobile phone");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Phone");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Employee-organisational unit");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("O unit");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Employee-phone");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("phone");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Interview-content");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Content");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Interview-Date");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("01.01.2016");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Interview-Description");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Description");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("IT-Asset-Auditor");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Auditor");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("IT-Asset-authorized at");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Authorised");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("IT-Asset-Contractual basis");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Basis");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("IT-Asset-Distributions list");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("List");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("IT-Asset-Inspect reference document");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("document");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("IT-Asset-Object under investigation");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("investigation");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("IT-Asset-Projection");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Projection");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Module-explanation");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("explanation");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Module-metadata text");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("metadata");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Module-name");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Module");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Module-number");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Number");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Name");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Name");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Room-floor");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Floor");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Room-number");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Room");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-Expected Material costs fix");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Cost");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-Expected Material costs variable");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Variable");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-Expected Personal costs fix");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Fix");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-Expected personal costs variable");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Variable");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-Explanation");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Explanation");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-last audit on");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("01.01.2015");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-metadata text");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Text");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-name");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Name");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-Next audit on");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("01.02.2016");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-Projectplanning");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Planning");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-realization begins on");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("02.02.2016");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-realization ends on");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("03.03.2016");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-Remarks");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Remarks");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-Spent material costs fix");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Cost fix");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Safeguard-Spent personal costs variable");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Variable");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Threat-name");
-        // Thread.sleep(1000);
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Threat");
-        // Thread.sleep(1000);
-        //
-        // $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:conditionField']")).selectOption("Token");
-        //
-        // $(By.xpath("//table//div[@style='display:inline' or @style='display:inline; white-space:nowrap']//input[@type='text']")).val("Token");
-        // Thread.sleep(1000);
+        //ok, save
+        $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanel_Form:addLink']")).click();
+        $(By.xpath(".//*[@id='securityCheckFilterPanel_conditionPanelHeader']")).waitUntil(disappears, 4000);
 
+        $(By.xpath(".//*[@id='securityCheckFilterPanel_dataListFilterForm:commandSave']")).click();
+        $(By.xpath(".//*[@id='securityCheckFilterPanelHeader']")).waitUntil(disappears, 5000);
 
     }
 
+    @AfterMethod
+    public void tearDownMethod() throws Exception {
+        if($(By.xpath(".//*[@id='securityCheckFilterPanel_dataListFilterForm:filterMessage']//span[contains(text(), 'An error occurred')]")).isDisplayed()){
+            refresh();
+            $(By.xpath(".//*[@id='securityCheckFilterPanel_dataListFilterForm:filterMessage']//span[contains(text(), 'An error occurred')]")).waitUntil(disappear, 8000);
+        } else if ($(By.xpath("//span[contains(text(), 'Mandatory')]")).isDisplayed()){
+            refresh();
+        }
+
+        $(By.xpath(".//*[@id='extendedDataListForm:filter_to_dataList_filter_management']/tbody/tr/td[3]/a[1]/img")).waitUntil(visible, 6000).click();
+        $(By.xpath(".//*[@id='confirmationDialog-confirm']")).waitUntil(enabled, 8000).click();
+        $(By.xpath(".//*[@id='confirmationDialogHeader']")).waitUntil(disappears, 6000);
+
+    }
 }

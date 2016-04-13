@@ -1,2 +1,3 @@
-select * from TARGET_OBJECT
-WHERE ROWNUM <= 5;
+select * from "EVALUATION"
+where SECURITY_ANALYSIS_ID = 1653
+
